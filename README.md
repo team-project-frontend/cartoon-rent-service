@@ -1,5 +1,7 @@
 # cartoon-rent-service
 
+# 파일트리
+
 ```
 cartoon-rent-service
 ├─ README.md
@@ -36,7 +38,7 @@ cartoon-rent-service
 
 ```
 
-# 설치
+# 클론 및 스크립트 명령어
 
 ```
 git clone https://github.com/team-project-frontend/cartoon-rent-service.git
@@ -47,4 +49,17 @@ npm run build  //dist 파일압축
 npm run deploy // 깃허브 배포
 ```
 
-#
+# 커밋메세지
+
+```
+feat	새로운 기능 추가
+fix	버그 수정
+docs	문서 수정
+style	코드 formatting, 세미콜론(;) 누락, 코드 변경이 없는 경우
+refactor	코드 리팩터링
+design	CSS 등 사용자 UI 디자인 변경
+build	관련 변경 사항 빌드
+revert	되돌리기
+rename	파일 혹은 폴더명을 수정하거나 옮기는 작업만인 경우
+remove	파일을 삭제하는 작업만 수행한 경우
+```
