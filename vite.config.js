@@ -14,7 +14,7 @@ export default defineConfig({
       },
     }),
   ],
-  base: "/team-project-front/",
+  base: "/cartoon-rent-service/",
   build: {
     outDir: "dist", // 빌드 결과물이 저장될 폴더 경로
     // assetsDir: "assets", // 빌드 결과물에 포함될 정적 파일들이 저장될 폴더 경로
