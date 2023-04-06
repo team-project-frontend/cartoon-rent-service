@@ -36,10 +36,10 @@ cartoon-rent-service
 
 ```
 
-# 설치 실행
+# 설치
 
 ```
-git clone cartoon-rent-service
+git clone https://github.com/team-project-frontend/cartoon-rent-service.git
 cd cartoon-rent-service
 npm install
 npm run dev   //실행
