@@ -1,30 +1,26 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
 import { Container } from "./styleComponents/style";
-import { TextField } from "@mui/material";
-import Button from "@mui/material/Button";
+import { error, success, Toast } from "../utiis/toast";
 
 function Client() {
+  const onClick = (type) => {
+    if (type === "success") return success("성공메시지");
+    error("error");
+  };
+
   return (
     <>
       <Container>
-        {/* <div className="box">
-          <div className="top">
-            <TextField
-              id="outlined-basic"
-              label="email"
-              variant="outlined"
-              type="email"
-            />
-            <TextField
-              id="outlined-basic2"
-              label="password"
-              variant="outlined"
-              type="password"
-            />
-            <Button variant="contained">로그인</Button>
-          </div>
-        </div> */}
         첫페이지
+        <button
+          onClick={() => {
+            onClick("success");
+          }}
+        >
+          성공
+        </button>
+        <button onClick={onClick}>실패</button>
+        {Toast()}
       </Container>
     </>
   );
