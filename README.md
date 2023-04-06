@@ -1,5 +1,4 @@
 ```
-
 cartoon-rent-service
 ├─ index.html
 ├─ package-lock.json
