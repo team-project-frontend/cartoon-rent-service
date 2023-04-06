@@ -46,3 +46,5 @@ npm run dev   //실행
 npm run build  //dist 파일압축
 npm run deploy // 깃허브 배포
 ```
+
+#
