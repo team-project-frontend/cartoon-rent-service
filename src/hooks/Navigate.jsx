@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+//네비게이트 훅입니다
 const Navigate = () => {
   const useNavigation = useNavigate();
   const navigate = (props) => {
