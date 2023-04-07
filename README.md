@@ -63,3 +63,54 @@ revert	되돌리기
 rename	파일 혹은 폴더명을 수정하거나 옮기는 작업만인 경우
 remove	파일을 삭제하는 작업만 수행한 경우
 ```
+
+```
+cartoon-rent-service
+├─ README.md
+├─ index.html
+├─ package-lock.json
+├─ package.json
+├─ src
+│  ├─ App.jsx
+│  ├─ Client.jsx
+│  ├─ assets
+│  │  ├─ fonts
+│  │  │  ├─ NotoSansKR-Black.otf
+│  │  │  ├─ NotoSansKR-Bold.otf
+│  │  │  ├─ NotoSansKR-Light.otf
+│  │  │  ├─ NotoSansKR-Medium.otf
+│  │  │  ├─ NotoSansKR-Regular.otf
+│  │  │  ├─ NotoSansKR-Thin.otf
+│  │  │  ├─ Pretendard-Bold.otf
+│  │  │  ├─ Pretendard-Medium.otf
+│  │  │  ├─ Pretendard-Regular.otf
+│  │  │  ├─ Pretendard-SemiBold.otf
+│  │  │  ├─ oehalmeoni.ttf
+│  │  │  ├─ ogbich.ttf
+│  │  │  └─ 휴먼범석체.ttf
+│  │  └─ images
+│  │     ├─ item_3.jpg
+│  │     └─ spinner2.gif
+│  ├─ atoms
+│  │  └─ countAtom.js
+│  ├─ components
+│  │  ├─ Contents.jsx
+│  │  └─ Error.jsx
+│  ├─ hooks
+│  │  └─ Navigate.jsx
+│  ├─ index.css
+│  ├─ main.jsx
+│  ├─ pages
+│  │  ├─ Counter.jsx
+│  │  ├─ Join.jsx
+│  │  ├─ Login.jsx
+│  │  ├─ Main.jsx
+│  │  └─ Test.jsx
+│  ├─ styleComponents
+│  │  └─ style.js
+│  └─ utiles
+│     ├─ routes.jsx
+│     └─ toast.jsx
+└─ vite.config.js
+
+```
