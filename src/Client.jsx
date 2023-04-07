@@ -1,27 +1,25 @@
-import React, { useState, useCallback, useEffect, useRef } from "react";
-import { Container } from "./styleComponents/style";
-import { error, success, Toast } from "../utiis/toast";
+import React from "react";
 
+import Contents from "./components/Contents";
+import { Route, Routes } from "react-router-dom";
+import routes from "./utiles/routes";
+import loadable from "@loadable/component";
+
+const Error = loadable(() => import("./components/Error"), {
+  fallback: <div>'로딩중..'</div>,
+});
 function Client() {
-  const onClick = (type) => {
-    if (type === "success") return success("성공메시지");
-    error("error");
-  };
-
   return (
     <>
-      <Container>
-        첫페이지
-        <button
-          onClick={() => {
-            onClick("success");
-          }}
-        >
-          성공
-        </button>
-        <button onClick={onClick}>실패</button>
-        {Toast()}
-      </Container>
+      <Routes>
+        {/* Contents 컴포넌트에 에 중첩라우터 용도에요  */}
+        <Route path="/" element={<Contents />}>
+          {routes.map((c) => {
+            return <Route key={c.id} path={c.path} element={c.item} />;
+          })}
+        </Route>
+        <Route path="/*" element={<Error />} />
+      </Routes>
     </>
   );
 }
