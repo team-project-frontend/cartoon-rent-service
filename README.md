@@ -29,8 +29,8 @@ cartoon-rent-service
 │  │  └─ images
 │  │     ├─ item_3.jpg
 │  │     └─ spinner2.gif
-│  ├─ atoms
-│  │  └─ countAtom.js
+│  ├─ store
+│  │  └─ countState.js
 │  ├─ components
 │  │  ├─ Contents.jsx
 │  │  └─ Error.jsx
@@ -53,11 +53,11 @@ cartoon-rent-service
 
  - assets:소스 파일 경로입니다 (확장자 추가시 vite.config 에서 수정)
  - hooks:리액트 커스텀 훅 (UseNavigate,useState,useCallback 등등)
- - atoms: redux store 처럼 모아둘 예정입니다
+ - store: store
  - components:페이지와 달리 공용으로 사용하는 컴포넌트
  - pages: 페이지 모음 (상세페이지 같은 하위 컴포넌트는 폴더로 묶을 필요가 있어보입니다)
  - styleComponents: 스타일 컴포넌트 폴더
- - utiles:공공적으로 사용될 함수,데이터,라우터 등등 
+ - utiles:공공적으로 사용될 함수,데이터,라우터 등등
  - vite.config.js:빌드 및 소스경로 개발서버 설정 등
 
  추가사항:axios 커스텀 파일 필요
