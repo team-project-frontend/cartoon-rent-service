@@ -4,9 +4,17 @@ import Counter from "./Counter";
 import API from "../utiles/api";
 import useInput from "../hooks/useInput";
 import { error } from "../utiles/toast";
+import userState from "../store/userState";
+import {
+  useRecoilState, // 랜더링 필요할시 : atom 안에 state 구독 후 변경시 재랜더 (버튼상호작용시 유용)
+  useSetRecoilState, // 렌더링 불필요시 : getter & setter 방식 오브젝트 프로퍼티 get , set 후 값만 수정 (인풋같은거 사용)
+  useResetRecoilState,
+} from "recoil";
 
 const Login = () => {
-  const [value, changehandler, setValue] = useInput({
+  const loginHandler = useSetRecoilState(userState); // 값만 변경 시키기
+  const resetState = useResetRecoilState(userState); // 디폴트값으로 값 변경
+  const [value, changehandler] = useInput({
     email: "",
     password: "",
   });
@@ -24,6 +32,7 @@ const Login = () => {
       );
       if (emailTest.length === 0) return error("아이디 틀려서 로그인못함");
       if (pwTest.length === 0) return error("비번 틀려서 로그인못함");
+      loginHandler((state) => ({ ...state, isLogin: true, name: "ddd" }));
       //더비양식입니다
     } catch (err) {
       console.log(err.response.data);
@@ -51,9 +60,17 @@ const Login = () => {
       <br />
 
       <button onClick={isLogin}>로그인</button>
+      <button onClick={resetState}>리셋</button>
       <p style={{ fontSize: "10px", cursor: "pointer" }} onClick={isJoin}>
         가입 페이지
       </p>
+      <div
+        onClick={() => {
+          navigate("/test");
+        }}
+      >
+        비로그인상태에서 test페이지 이동시
+      </div>
     </>
   );
 };
