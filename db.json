@@ -1,0 +1,11 @@
+{
+  "posts": [
+    { "id": 1, "title": "Hello World", "author": "John Doe" },
+    { "id": 2, "title": "Lorem Ipsum", "author": "Jane Smith" }
+  ],
+  "comments": [
+    { "id": 1, "postId": 1, "body": "Nice post!" },
+    { "id": 2, "postId": 1, "body": "Great article." },
+    { "id": 3, "postId": 2, "body": "Really helpful." }
+  ]
+}
