@@ -5,6 +5,7 @@ import "./index.css";
 import Error from "./components/Error";
 import Login from "./pages/Login";
 import Join from "./pages/Join";
+import { Toast } from "./utiles/toast";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -12,12 +13,15 @@ function App() {
   return (
     <>
       {!isLogin ? (
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/*" element={<Error />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/join" element={<Join />} />
-        </Routes>
+        <>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/*" element={<Error />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/join" element={<Join />} />
+          </Routes>
+          <Toast />
+        </>
       ) : (
         // <Client />
         <Routes>
