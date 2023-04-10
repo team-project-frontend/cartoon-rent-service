@@ -1,0 +1,1 @@
+import{R as n,u as s,N as i,j as o,F as r,a as t}from"./index-d9168711.js";const l=()=>{const a=n(s),e=i();return o(r,{children:[t("div",{children:"메인페이지"}),t("div",{onClick:()=>{e("/test")},children:"test페이지 이동"}),t("button",{onClick:a,children:"로그아웃"})]})};export{l as default};
