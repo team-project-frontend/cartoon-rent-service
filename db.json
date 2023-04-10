@@ -1,11 +1,20 @@
 {
-  "posts": [
-    { "id": 1, "title": "Hello World", "author": "John Doe" },
-    { "id": 2, "title": "Lorem Ipsum", "author": "Jane Smith" }
-  ],
-  "comments": [
-    { "id": 1, "postId": 1, "body": "Nice post!" },
-    { "id": 2, "postId": 1, "body": "Great article." },
-    { "id": 3, "postId": 2, "body": "Really helpful." }
+  "users": [
+    {
+      "id": 1,
+      "name": "test1",
+      "password": "test123",
+      "author": "장경민"
+    },
+    {
+      "email": "dasdsa",
+      "password": "dsad",
+      "id": 2
+    },
+    {
+      "email": "test123",
+      "password": "123",
+      "id": 3
+    }
   ]
 }
