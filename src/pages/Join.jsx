@@ -6,17 +6,24 @@ import Navigate from "../hooks/Navigate";
 
 const Join = () => {
   const [value, changehandler, setValue] = useInput({
+    name: "",
     email: "",
     password: "",
   });
 
   const isJoin = async () => {
     const res = await API.post("/users", value);
-    console.log(res);
+    try {
+      console.log(res.data);
+      success("가입되엇습니다");
+    } catch (err) {
+      console.log(err.response.data);
+    }
   };
   const onSubmit = useCallback(
     (e) => {
       e.preventDefault();
+      if (value.name === "") return error("이름을 입력해주세요");
       if (value.email === "") return error("이베일을 입력해주세요");
       if (value.password === "") return error("비밀번호 입력해주세요");
       isJoin();
@@ -28,6 +35,13 @@ const Join = () => {
     <div>
       <p>가입 페이지</p>
       <form>
+        <input
+          type="text"
+          onChange={(e) => {
+            changehandler(e, "name");
+          }}
+        />
+        <br />
         <input
           type="email"
           onChange={(e) => {
