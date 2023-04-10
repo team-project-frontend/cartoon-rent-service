@@ -25,7 +25,7 @@ const Counter = () => {
           setCounter(counter + 1);
         }}
       >
-        스테이트
+        + ..
       </button>
       <button onClick={plusCount}>+</button>
       <button onClick={minusCount}>-</button>
