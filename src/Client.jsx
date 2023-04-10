@@ -4,6 +4,7 @@ import Contents from "./components/Contents";
 import { Route, Routes } from "react-router-dom";
 import routes from "./utiles/routes";
 import loadable from "@loadable/component";
+import Counter from "./pages/Counter";
 
 const Error = loadable(() => import("./components/Error"), {
   fallback: <div>'로딩중..'</div>,
@@ -11,6 +12,7 @@ const Error = loadable(() => import("./components/Error"), {
 function Client() {
   return (
     <>
+      <Counter />
       <Routes>
         {/* Contents 컴포넌트에 에 중첩라우터 용도에요  */}
         <Route path="/" element={<Contents />}>

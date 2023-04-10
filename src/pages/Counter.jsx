@@ -5,7 +5,7 @@ import {
   useSetRecoilState,
   useResetRecoilState,
 } from "recoil";
-import countState from "../atoms/countAtom";
+import countState from "../store/countState";
 
 const Counter = () => {
   const [counter, setCounter] = useRecoilState(countState); // useRecoilState을 사용하여 다른 파일에 있는 아톰을 읽을 수 있다.
@@ -20,6 +20,13 @@ const Counter = () => {
     <div>
       {counter}
       {currentCount}
+      <button
+        onClick={() => {
+          setCounter(counter + 1);
+        }}
+      >
+        스테이트
+      </button>
       <button onClick={plusCount}>+</button>
       <button onClick={minusCount}>-</button>
       <button onClick={resetCounter}>리셋</button>
