@@ -60,17 +60,9 @@ const Login = () => {
       <br />
 
       <button onClick={isLogin}>로그인</button>
-      <button onClick={resetState}>리셋</button>
       <p style={{ fontSize: "10px", cursor: "pointer" }} onClick={isJoin}>
         가입 페이지
       </p>
-      <div
-        onClick={() => {
-          navigate("/test");
-        }}
-      >
-        비로그인상태에서 test페이지 이동시
-      </div>
     </>
   );
 };

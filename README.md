@@ -7,6 +7,7 @@
 ```
 cartoon-rent-service
 ├─ README.md
+├─ db.json
 ├─ index.html
 ├─ package-lock.json
 ├─ package.json
@@ -31,13 +32,12 @@ cartoon-rent-service
 │  │  └─ images
 │  │     ├─ item_3.jpg
 │  │     └─ spinner2.gif
-│  ├─ store
-│  │  └─ countState.js
 │  ├─ components
 │  │  ├─ Contents.jsx
 │  │  └─ Error.jsx
 │  ├─ hooks
-│  │  └─ Navigate.jsx
+│  │  ├─ Navigate.jsx
+│  │  └─ useInput.jsx
 │  ├─ index.css
 │  ├─ main.jsx
 │  ├─ pages
@@ -46,16 +46,20 @@ cartoon-rent-service
 │  │  ├─ Login.jsx
 │  │  ├─ Main.jsx
 │  │  └─ Test.jsx
+│  ├─ store
+│  │  ├─ countState.js
+│  │  └─ userState.js
 │  ├─ styleComponents
 │  │  └─ style.js
 │  └─ utiles
+│     ├─ api.jsx
 │     ├─ routes.jsx
 │     └─ toast.jsx
 └─ vite.config.js
 
  - assets:소스 파일 경로입니다 (확장자 추가시 vite.config 에서 수정)
  - hooks:리액트 커스텀 훅 (UseNavigate,useState,useCallback 등등)
- - store: store
+ - store: 리코일 store
  - components:페이지와 달리 공용으로 사용하는 컴포넌트
  - pages: 페이지 모음 (상세페이지 같은 하위 컴포넌트는 폴더로 묶을 필요가 있어보입니다)
  - styleComponents: 스타일 컴포넌트 폴더
@@ -76,6 +80,8 @@ npm install
 npm run dev   //실행
 npm run build  //dist 파일압축
 npm run deploy // 깃허브 배포
+
+json-server --watch db.json    // 입력시  터미널 추가로 열고 루트경로 db.json 파일을  json-server 로 사용할수있습니다
 ```
 
 # 커밋메세지

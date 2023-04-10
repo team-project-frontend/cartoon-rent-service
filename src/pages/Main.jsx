@@ -15,7 +15,7 @@ const Main = () => {
           navigate("/test");
         }}
       >
-        로그인상태에서 test페이지 이동
+        test페이지 이동
       </div>
       <button onClick={logoutHandler}>로그아웃</button>
     </>
