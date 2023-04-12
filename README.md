@@ -1,6 +1,5 @@
 # cartoon-rent-service
 
-# kmjang 브랜치
 
 # 파일트리
 
