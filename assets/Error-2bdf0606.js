@@ -1,1 +1,0 @@
-import{N as t,j as s,a}from"./index-3e7bb561.js";const o=()=>{const r=t();return s("div",{children:["에러페이지",a("br",{}),"존재하지 않는 페이지 입니다.",a("button",{onClick:()=>{r("/")},children:"back"})]})};export{o as default};
