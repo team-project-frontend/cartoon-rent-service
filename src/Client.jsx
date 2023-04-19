@@ -1,6 +1,6 @@
 import React from "react";
 
-import Contents from "./components/Contents";
+import Contents from "./layout/Contents";
 import { Route, Routes } from "react-router-dom";
 import routes from "./utiles/routes";
 import loadable from "@loadable/component";
@@ -12,7 +12,6 @@ function Client() {
   return (
     <>
       <Routes>
-        {/* Contents 컴포넌트에 에 중첩라우터 용도에요  */}
         <Route path="/" element={<Contents />}>
           {routes.map((c) => {
             return <Route key={c.id} path={c.path} element={c.item} />;

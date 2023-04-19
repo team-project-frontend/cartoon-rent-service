@@ -125,21 +125,24 @@ table {
 
 * {
   box-sizing: border-box;
-  font-family: "DM Sans";
+  text-decoration: none;
+}
+a {
+  color: #000;
+}
+
+:root {
+  --font-size-lg: 16px;
+  --font-size-md: 2rem;
+  --font-size-sm: 1.25rem;
 }
 
 @font-face {
-  font-family: "휴먼범석체";
-  src: url(./assets/fonts/휴먼범석체.ttf);
+  font-family: "Cafe24Ssurround";
+  font-size: 14px;
+  src: url(./assets/fonts/Cafe24Ssurround.ttf);
 }
-@font-face {
-  font-family: "나눔손글씨_옥비체";
-  src: url(./assets/fonts/ogbich.ttf);
-}
-@font-face {
-  font-family: "나눔손글씨_외할머니글씨";
-  src: url(./assets/fonts/oehalmeoni.ttf);
-}
+
 @font-face {
   font-family: "Pretendard-Bold";
   src: url(./assets/fonts/Pretendard-Bold.otf);
@@ -179,4 +182,233 @@ table {
 @font-face {
   font-family: "NotoSansKR-Thin";
   src: url(./assets/fonts/NotoSansKR-Thin.otf);
+}
+
+.header-container {
+  display: flex;
+  height: 80px;
+  background: #cde3f1;
+  padding: 0px 10px;
+  justify-content: space-between;
+}
+
+.header-container .button-div {
+  display: flex;
+  padding: 19.5px 0;
+  gap: 10px;
+}
+.header-container .button-div > div {
+  min-width: 107px;
+}
+.header-container .button-div > div a {
+  display: block;
+  padding: 10px 15px;
+  text-align: center;
+  width: 100%;
+  font-size: 16px;
+  font-family: Cafe24Ssurround;
+  border-radius: 15px;
+}
+
+.header-container .button-div > div.loginButton > a {
+  color: #fff;
+  border: 2px solid #169ef9;
+  background: #169ef9;
+}
+.header-container .button-div > div.joinButton > a {
+  color: #169ef9;
+  border: 2px solid #169ef9;
+  background: #cde3f1;
+}
+
+.header-container .active-div {
+  padding: 17px 0;
+}
+.header-container .active-div > div {
+  border: 3px solid #169ef9;
+  width: 46px;
+  height: 46px;
+  border-radius: 50px;
+}
+
+.header-container .close-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.islogin-button-div {
+  display: flex;
+  padding: 15px 0;
+  width: 100%;
+  padding-right: 25px;
+}
+.islogin-button-div > div {
+  border: 3px solid #169ef9;
+  height: 50px;
+  border-radius: 40px;
+  width: 100%;
+  background: #fff;
+}
+
+.pc-logo {
+  background: url(./assets/images/logo.png) center no-repeat;
+  text-indent: -9999px;
+  width: 80px;
+}
+.profile-box {
+  display: flex;
+  align-items: center;
+  padding: 0 3px;
+  gap: 10px;
+}
+.profile {
+  width: 50px;
+  display: block;
+  height: 40px;
+  border-radius: 50px;
+  background: url(./assets/images/도토리.png) center no-repeat;
+}
+.nickname {
+  font-family: "Cafe24Ssurround";
+  font-weight: 700;
+  font-size: 18px;
+  color: #169ef9;
+  flex-grow: 1;
+  width: 50%;
+}
+.ticket {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 50%;
+  color: #bebebe;
+  font-family: "Noto Sans";
+  font-weight: 400;
+  font-size: 13px;
+}
+/* 메인 */
+.main-section-container {
+  background: #f2f9ff;
+  padding: 0 20px;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.pt-50 {
+  padding-top: 50px;
+}
+.main-banner-container {
+  border: 2px solid #169ef9;
+  border-radius: 15px;
+  padding: 40px 45px;
+  height: 130px;
+  transition: 0.2s all ease-in;
+}
+.penalty {
+  background: url(./assets/images/penalty.png) center no-repeat;
+  background-size: cover;
+}
+.main-banner-container > p {
+  font-family: Cafe24Ssurround;
+  font-size: 16px;
+  font-weight: 700;
+  color: #169ef9;
+  text-align: center;
+  line-height: 21px;
+}
+.main-button-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  transition: 0.2s all ease-out;
+}
+
+.main-btn-style {
+  font-family: "Noto Sans";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #ffffff;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 2px 20px;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.main-btn-style:nth-child(1),
+.main-btn-style:nth-child(2) {
+  width: calc(50% - 10px);
+  background: #169ef9;
+  border: 1px solid #169ef9;
+  border-radius: 15px;
+}
+
+.main-btn-style:last-child {
+  width: 100%;
+  background: #169ef9;
+  border: 1px solid #169ef9;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+/* 드롭다운 */
+
+.dropDown-container {
+  margin-top: 20px;
+}
+.dropDown-container div.dropDown-div {
+  background: #c6e8ff;
+  border-radius: 15px;
+  overflow: hidden;
+  height: 60px;
+  transition: 0.2s all ease-in;
+}
+.dropDown-container div.dropDown-div > p {
+  font-family: "Cafe24Ssurround";
+  padding: 15px 30px;
+  font-weight: 700;
+  font-size: 29px;
+  line-height: 34px;
+  color: #169ef9;
+  position: relative;
+  height: 60px;
+  cursor: pointer;
+}
+.active {
+  height: 300px !important;
+}
+.dropDown-container div.dropDown-div > p::after {
+  content: "";
+  background: url(./assets//images/btn.png) center no-repeat;
+  background-size: 100%;
+  width: 40px;
+  height: 40px;
+  display: block;
+  position: absolute;
+  top: 10px;
+  transition: 0.1s ease-in;
+  right: 26px;
+  transform: rotate(0deg);
+}
+.dropDown-container div.dropDown-div.active > p::after {
+  transform: rotate(180deg);
+}
+.dropDown-container div.dropDown-div ul {
+  padding: 44px 30px;
+  border-top: 1px solid;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.dropDown-container div.dropDown-div ul li > a {
+  font-family: "Noto Sans";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  color: #169ef9;
 }
