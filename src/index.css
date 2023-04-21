@@ -204,6 +204,27 @@ a {
   animation-fill-mode: forwards;
 }
 
+.sectionTitle {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 47px;
+}
+.subTitle {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 29px;
+  line-height: 39px;
+  color: #555555;
+}
+
+.paperBg {
+  background: url(./assets/images/paper.svg) center;
+  height: 110px;
+  margin-bottom: 50px;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
