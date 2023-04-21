@@ -3,7 +3,7 @@ import { useRecoilValue } from "recoil";
 import userState from "../store/userState";
 import { Link } from "react-router-dom";
 import { Media768 } from "../utiles/media";
-import { NavContainer } from "../styleComponents/NavStyle";
+import { NavContainer } from "../styleComponents/NavStyle"; //스타일
 import closeIcon from "../assets/images/close.png";
 import profileImg from "../assets/images/도토리.png";
 import penaltyImg from "../assets/images/penalty.png";
@@ -12,7 +12,7 @@ import icon_1 from "../assets/images/nav_icon-01.svg";
 import icon_2 from "../assets/images/nav_icon-02.svg";
 import icon_3 from "../assets/images/nav_icon-03.svg";
 
-const Nav = () => {
+const Nav = ({ onClick }) => {
   const globalValue = useRecoilValue(userState); //리코일 전역변수 로그인 여부 조회용도
   const [activeButton, setActiveButton] = useState(null); //nav버튼 토글 (수정필요)
   const propsState = {
@@ -32,7 +32,7 @@ const Nav = () => {
   };
   return (
     <>
-      <NavContainer props={propsState}>
+      <NavContainer props={propsState} className="fade-in">
         <div className="headerArea">
           {!globalValue.isLogin ? (
             <div className="buttonArea">
@@ -71,7 +71,7 @@ const Nav = () => {
           )}
 
           <div className="activeArea">
-            <div className="closeButton">
+            <div className="closeButton " onClick={onClick}>
               <img src={closeIcon} alt="닫기 버튼" />
             </div>
           </div>

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const NavContainer = styled.section`
+  position: absolute;
+  width: 100%;
   font-family: "Cafe24Ssurround";
   background: #f2f9ff;
   height: calc(100vh);
