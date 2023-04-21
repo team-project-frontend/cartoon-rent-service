@@ -1,19 +1,12 @@
 import React from "react";
-import { useMediaQuery } from "react-responsive";
 import icon_1 from "../assets/images/nav_icon-01.svg";
 import icon_2 from "../assets/images/nav_icon-02.svg";
 import icon_3 from "../assets/images/nav_icon-03.svg";
-import { useCallback } from "react";
 import { useRecoilValue } from "recoil";
 import userState from "../store/userState";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import { success } from "../utiles/toast";
-
-export const Media768 = () => {
-  const mediaMobile = useMediaQuery({ query: "(max-width:768px)" });
-  return mediaMobile;
-};
+import { Media768 } from "../utiles/media";
 
 const Main = () => {
   const globalValue = useRecoilValue(userState);
@@ -22,7 +15,6 @@ const Main = () => {
   const onclick = () => {
     alert("준비중입니다");
   };
-
   const onClickDrop = (e) => {
     const { classList } = e.currentTarget;
 

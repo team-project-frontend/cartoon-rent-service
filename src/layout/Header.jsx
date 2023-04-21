@@ -3,12 +3,7 @@ import { Link } from "react-router-dom";
 import close from "../assets/images/close.png";
 import { useRecoilValue } from "recoil";
 import userState from "../store/userState";
-import { useMediaQuery } from "react-responsive";
-import 도토리 from "../assets/images/도토리.png";
-export const Media768 = () => {
-  const mediaMobile = useMediaQuery({ query: "(max-width:768px)" });
-  return mediaMobile;
-};
+import { Media768 } from "../utiles/media";
 
 const Header = () => {
   const globalValue = useRecoilValue(userState);
