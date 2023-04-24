@@ -125,21 +125,24 @@ table {
 
 * {
   box-sizing: border-box;
-  font-family: "DM Sans";
+  text-decoration: none;
+}
+a {
+  color: #000;
+}
+
+:root {
+  --font-size-lg: 16px;
+  --font-size-md: 2rem;
+  --font-size-sm: 1.25rem;
 }
 
 @font-face {
-  font-family: "휴먼범석체";
-  src: url(./assets/fonts/휴먼범석체.ttf);
+  font-family: "Cafe24Ssurround";
+  font-size: 14px;
+  src: url(./assets/fonts/Cafe24Ssurround.ttf);
 }
-@font-face {
-  font-family: "나눔손글씨_옥비체";
-  src: url(./assets/fonts/ogbich.ttf);
-}
-@font-face {
-  font-family: "나눔손글씨_외할머니글씨";
-  src: url(./assets/fonts/oehalmeoni.ttf);
-}
+
 @font-face {
   font-family: "Pretendard-Bold";
   src: url(./assets/fonts/Pretendard-Bold.otf);
@@ -179,4 +182,54 @@ table {
 @font-face {
   font-family: "NotoSansKR-Thin";
   src: url(./assets/fonts/NotoSansKR-Thin.otf);
+}
+
+.pc-logo {
+  background: url(./assets/images/logo.png) center no-repeat;
+  text-indent: -9999px;
+  width: 80px;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.pt-50 {
+  padding-top: 50px;
+}
+.fade-in {
+  opacity: 0;
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.sectionTitle {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 47px;
+}
+.subTitle {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 29px;
+  line-height: 39px;
+  color: #555555;
+}
+
+.paperBg {
+  background: url(./assets/images/paper.svg) center;
+  height: 110px;
+  margin-bottom: 50px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
