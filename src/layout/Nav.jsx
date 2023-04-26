@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useRecoilValue } from "recoil";
 import userState from "../store/userState";
 import { Link } from "react-router-dom";
-import { Media768 } from "../utiles/media";
+// import { Media768 } from "../utiles/media";
 import { NavContainer } from "../styleComponents/NavStyle"; //스타일
 import closeIcon from "../assets/images/close.png";
 import profileImg from "../assets/images/도토리.png";
@@ -45,7 +45,7 @@ const Nav = ({ onClick }) => {
             </div>
           ) : (
             <>
-              {!Media768() && <p className="pc-logo">로고</p>}
+              {/* {!Media768() && <p className="pc-logo">로고</p>} */}
               <div className="loginStatus">
                 <div className="profileArea">
                   <span className="profile"></span>
@@ -81,11 +81,11 @@ const Nav = ({ onClick }) => {
             {!globalValue.isLogin ? (
               <div
                 className="statusArea"
-                style={
-                  Media768()
-                    ? { width: "100%" }
-                    : { width: " calc(50% - 10px)" }
-                }
+                // style={
+                //   Media768()
+                //     ? { width: "100%" }
+                //     : { width: " calc(50% - 10px)" }
+                // }
               >
                 <p>
                   로그인 후 <br /> 더 많은 혜택을 누리세요.
@@ -94,22 +94,22 @@ const Nav = ({ onClick }) => {
             ) : (
               <div
                 className="statusArea penalty"
-                style={
-                  Media768()
-                    ? { width: "100%" }
-                    : { width: " calc(50% - 10px)" }
-                }
+                // style={
+                //   Media768()
+                //     ? { width: "100%" }
+                //     : { width: " calc(50% - 10px)" }
+                // }
               >
                 <p>로그인 후 패널티 있을경우</p>
               </div>
             )}
             <div
               className="buttonArea"
-              style={
-                Media768()
-                  ? { width: "100%", marginTop: "20px" }
-                  : { width: "calc(50% - 10px)" }
-              }
+              // style={
+              //   Media768()
+              //     ? { width: "100%", marginTop: "20px" }
+              //     : { width: "calc(50% - 10px)" }
+              // }
             >
               <button className="btnStyle" onClick={onclick}>
                 <img src={icon_1} alt="" width="50px" height="50px" />
