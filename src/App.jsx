@@ -11,17 +11,19 @@ import { useRecoilValue } from "recoil";
 import userState from "./store/userState";
 
 function App() {
+  const [isLogin, setIsLogin] = useState(false);
   const globalValue = useRecoilValue(userState);
   useEffect(() => {
     console.log(globalValue, "globalValue");
+    console.log(globalValue.isLogin);
   }, [globalValue]);
   return (
     <>
       {!globalValue.isLogin ? (
         <>
           <Routes>
-            {/* <Route path="/" element={<Login />} /> */}
-            <Route path="/*" element={<Client />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/*" element={<Error />} />
             <Route path="/login" element={<Login />} />
             <Route path="/join" element={<Join />} />
             <Route path="/signup" element={<SignUp />} />
