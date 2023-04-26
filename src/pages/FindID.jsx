@@ -28,7 +28,6 @@ const FindID = () => {
       const emailTest = res.data.filter(
         (current) => current.email === value.email
       );
-     
       if (emailTest.length === 0) return error("아이디 틀려서 로그인못함");
       loginHandler((state) => ({ ...state, isLogin: true, name: "ddd" }));
       //더비양식입니다

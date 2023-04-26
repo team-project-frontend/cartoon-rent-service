@@ -1,6 +1,6 @@
 import React from "react";
 import Reservation from "../components/mainComponent/Reservation";
-
+import ShareTaste from '../components/mainComponent/shareTaste/ShareTaste';
 const Main = () => {
   return (
     <>
@@ -21,6 +21,11 @@ const Main = () => {
         {/* 영역분리 */}
         <Reservation />
         {/* 작업하실 컴포넌트 여기에 추가해주세여ㅕ */}
+
+
+
+
+        <ShareTaste/>
       </div>
     </>
   );
