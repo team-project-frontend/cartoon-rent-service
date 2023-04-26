@@ -5,10 +5,12 @@ import "./index.css";
 import Error from "./components/Error";
 import Login from "./pages/Login";
 import Join from "./pages/Join";
-import SignUp from "./pages/Signup";
+import SignUp from "./pages/SignUp";
 import { Toast } from "./utiles/toast";
 import { useRecoilValue } from "recoil";
 import userState from "./store/userState";
+import FavoriteContents from "./components/mainComponent/FavoriteContents";
+import FavoriteContent from "./components/FavoriteContent";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -22,7 +24,12 @@ function App() {
       {!globalValue.isLogin ? (
         <>
           <Routes>
-            <Route path="/" element={<Login />} />
+            {/* <Route path="/" element={<Login />} /> */}
+            <Route path="/" element={<FavoriteContents />}>
+              <Route path="/" element={<FavoriteContent />} />
+              <Route path="/bybookstore" element={<FavoriteContent />} />
+              <Route path="/byauthor" element={<FavoriteContent />} />
+            </Route>
             <Route path="/*" element={<Error />} />
             <Route path="/login" element={<Login />} />
             <Route path="/join" element={<Join />} />
