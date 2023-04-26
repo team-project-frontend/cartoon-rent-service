@@ -1,6 +1,6 @@
 # cartoon-rent-service
 
-# kmjang 브랜치222
+# kmjang 브랜치
 
 # 파일트리
 
