@@ -87,6 +87,15 @@ cartoon-rent-service
 │     └─ toast.jsx
 └─ vite.config.js
 
+ - assets:소스 파일 경로입니다 (확장자 추가시 vite.config 에서 수정)
+ - hooks:리액트 커스텀 훅 (UseNavigate,useState,useCallback 등등)
+ - store: 리코일 store
+ - components:페이지와 달리 공용으로 사용하는 컴포넌트
+ - pages: 페이지 모음 (상세페이지 같은 하위 컴포넌트는 폴더로 묶을 필요가 있어보입니다)
+ - styleComponents: 스타일 컴포넌트 폴더
+ - utiles:공공적으로 사용될 함수,데이터,라우터 등등
+ - vite.config.js:빌드 및 소스경로 개발서버 설정 등
+
 ```
 
 # 클론 및 스크립트 명령어
