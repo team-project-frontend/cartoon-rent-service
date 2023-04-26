@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IoIosCheckmarkCircle, IoIosCloseCircle } from "react-icons/io";
+// import { IoIosCheckmarkCircle, IoIosCloseCircle } from "react-icons/io";
 import API from "../utiles/api";
 import { error, success } from "../utiles/toast";
 
@@ -41,11 +41,13 @@ function SignUp() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const res = await API.post("/users", userInfo);
-      console.log(res.data);
-      success("가입되엇습니다");
+      // const res = await API.post("/users", userInfo);
+      // console.log(res.data);
+      // success("가입되엇습니다");
+      console.log("userInfo:", userInfo);
     } catch (err) {
-      console.log(err.response.data);
+      // console.log(err.response.data);
+      console.log("err:", err);
     }
   };
   return (
@@ -78,12 +80,14 @@ function SignUp() {
             required
           />
           {emailError && (
-            <IoIosCloseCircle style={{ color: "red", marginLeft: "10px" }} />
+            // <IoIosCloseCircle style={{ color: "red", marginLeft: "10px" }} />
+            <span style={{ color: "red", marginLeft: "10px" }}>✖️</span>
           )}
           {!emailError && userInfo.useremail && (
-            <IoIosCheckmarkCircle
-              style={{ color: "green", marginLeft: "10px" }}
-            />
+            // <IoIosCheckmarkCircle
+            //   style={{ color: "green", marginLeft: "10px" }}
+            // />
+            <span>✅</span>
           )}
         </label>
         <br />
@@ -99,12 +103,14 @@ function SignUp() {
             required
           />
           {passwordError && (
-            <IoIosCloseCircle style={{ color: "red", marginLeft: "10px" }} />
+            // <IoIosCloseCircle style={{ color: "red", marginLeft: "10px" }} />
+            <span style={{ color: "red", marginLeft: "10px" }}>✖️</span>
           )}
           {!passwordError && userInfo.password && (
-            <IoIosCheckmarkCircle
-              style={{ color: "green", marginLeft: "10px" }}
-            />
+            // <IoIosCheckmarkCircle
+            //   style={{ color: "green", marginLeft: "10px" }}
+            // />
+            <span>✅</span>
           )}
         </label>
         <label>
@@ -119,12 +125,14 @@ function SignUp() {
             required
           />
           {confirmPasswordError && (
-            <IoIosCloseCircle style={{ color: "red", marginLeft: "10px" }} />
+            // <IoIosCloseCircle style={{ color: "red", marginLeft: "10px" }} />
+            <span style={{ color: "red", marginLeft: "10px" }}>✖️</span>
           )}
           {!confirmPasswordError && userInfo.password && confirmPassword && (
-            <IoIosCheckmarkCircle
-              style={{ color: "green", marginLeft: "10px" }}
-            />
+            // <IoIosCheckmarkCircle
+            //   style={{ color: "green", marginLeft: "10px" }}
+            // />
+            <span>✅</span>
           )}
         </label>
         <button type="submit">Sign up</button>
