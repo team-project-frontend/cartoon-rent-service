@@ -66,8 +66,8 @@ console.log(value)
         }}
         />
  <br />
-      <button onClick={isFindID}>아이디 찾기</button>
-      <p style={{ fontSize: "10px", cursor: "pointer" }} onClick={isJoin}>
+      <button onClick={isFindPassword}>아이디 찾기</button>
+      <p style={{ fontSize: "10px", cursor: "pointer" }} onClick={isFindID}>
         비밀번호를 잃어버리셨나요?
       </p>
     </>

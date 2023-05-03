@@ -22,7 +22,7 @@ const FindID = () => {
   });
 
   const navigate = useNavigate();
-  const isJoin = () => navigate("/join");
+  const isFindPassword = () => navigate("/findPassword");
   const isFindID = async () => {
     const res = await API.post("/auth/find_id",value);
     // try {
@@ -61,7 +61,7 @@ console.log(value)
    
  <br />
       <button onClick={isFindID}>아이디 찾기</button>
-      <p style={{ fontSize: "10px", cursor: "pointer" }} onClick={isJoin}>
+      <p style={{ fontSize: "10px", cursor: "pointer" }} onClick={isFindPassword}>
         비번 찾으러 가기
       </p>
     </>
