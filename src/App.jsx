@@ -22,6 +22,7 @@ function App() {
       {!globalValue.isLogin ? (
         <>
           <Routes>
+            {/* <div></div> */}
             <Route path="/" element={<Login />} />
             <Route path="/*" element={<Error />} />
             <Route path="/login" element={<Login />} />
