@@ -11,6 +11,32 @@
       "password": "123",
       "name": "장경민2",
       "id": 2
+    },
+    {
+      "email": "test12@hanmail.net",
+      "password": "1234",
+      "name": "박지안3",
+      "id": 3
+    },
+    {
+      "email": "test22@hanmail.net",
+      "password": "2345",
+      "name": "박지안4",
+      "id": 4
+    },
+    {
+      "email": "test32@hanmail.net",
+      "password": "3456",
+      "name": "박지안5",
+      "id": 5
     }
+  ],
+  "signupAuthentication": [
+    {
+    "email": "fefe@hanmail.net",
+    "authNumber": "152678",
+    "validTime": "30",
+    "valid": "true"
+  }
   ]
 }
