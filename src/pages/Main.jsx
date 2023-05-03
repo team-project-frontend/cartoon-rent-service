@@ -24,13 +24,13 @@ const Main = () => {
         {/* 영역분리 */}
         <Reservation />
         {/* 작업하실 컴포넌트 여기에 추가해주세여ㅕ */}
-        {/* <Routes>
+        <Routes>
           <Route path="/" element={<FavoriteContents />}>
             <Route path="/" element={<FavoriteContent />} />
             <Route path="/bybookstore" element={<FavoriteContent />} />
             <Route path="/byauthor" element={<FavoriteContent />} />
           </Route>
-        </Routes> */}
+        </Routes>
 
         <ShareTaste />
       </div>
