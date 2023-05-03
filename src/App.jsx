@@ -24,12 +24,12 @@ function App() {
       {!globalValue.isLogin ? (
         <>
           <Routes>
-            {/* <Route path="/" element={<Login />} /> */}
-            <Route path="/" element={<FavoriteContents />}>
+            <Route path="/" element={<Login />} />
+            {/* <Route path="/" element={<FavoriteContents />}>
               <Route path="/" element={<FavoriteContent />} />
               <Route path="/bybookstore" element={<FavoriteContent />} />
               <Route path="/byauthor" element={<FavoriteContent />} />
-            </Route>
+            </Route> */}
             <Route path="/*" element={<Error />} />
             <Route path="/login" element={<Login />} />
             <Route path="/join" element={<Join />} />
