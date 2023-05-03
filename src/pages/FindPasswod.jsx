@@ -11,20 +11,20 @@ import {
   useResetRecoilState,
 } from "recoil";
 
-const FindID = () => {
+const FindPassword = () => {
   const loginHandler = useSetRecoilState(userState); // 값만 변경 시키기
   const resetState = useResetRecoilState(userState); // 디폴트값으로 값 변경
   //아이디를 알려주기 위한 정보가 부족(핸드폰번호?라도 추가)
   const [value, changehandler] = useInput({
     name: "",
     phone:"",
-   
+    email:"",
   });
 
   const navigate = useNavigate();
-  const isJoin = () => navigate("/join");
-  const isFindID = async () => {
-    const res = await API.post("/auth/find_id",value);
+  const isFindID = () => navigate("/findID");
+  const isFindPassword = async () => {
+    const res = await API.post("/auth/set_pw",value);
     // try {
     //   const emailTest = res.data.filter(
     //     (current) => current.email === value.email
@@ -41,7 +41,7 @@ const FindID = () => {
 console.log(value)
   return (
     <>
-      <div>아이디 찾기 페이지</div>
+      <div>비밀번호 재설정 페이지</div>
       <span>이름 : </span>
       <input
         type="text"
@@ -58,14 +58,20 @@ console.log(value)
         }}
       />
        <br />
-   
+      <span>이메일 : </span>
+      <input
+        type="text"
+        onChange={(e) => {
+          changehandler(e, "email");
+        }}
+        />
  <br />
       <button onClick={isFindID}>아이디 찾기</button>
       <p style={{ fontSize: "10px", cursor: "pointer" }} onClick={isJoin}>
-        비번 찾으러 가기
+        비밀번호를 잃어버리셨나요?
       </p>
     </>
   );
 };
 
-export default FindID;
+export default FindPassword;
