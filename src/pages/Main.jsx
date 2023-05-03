@@ -1,6 +1,7 @@
 import React from "react";
 import Reservation from "../components/mainComponent/Reservation";
 import ShareTaste from '../components/mainComponent/shareTaste/ShareTaste';
+import Favorite from '../components/mainComponent/myFavoriteComics/Favorite';
 const Main = () => {
   return (
     <>
@@ -26,6 +27,7 @@ const Main = () => {
 
 
         <ShareTaste/>
+        <Favorite/>
       </div>
     </>
   );
