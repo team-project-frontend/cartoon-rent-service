@@ -9,10 +9,7 @@ export const List = styled.ul`
   list-style: none;
   padding: 0;
 `;
-export const ItemWrapper = styled.div`
-  display: block;
-  margin-right: 40px;
-`;
+
 export const Item = styled.li`
   font-family: "Noto Sans";
   cursor: pointer;
@@ -34,4 +31,16 @@ export const Circle = styled.div`
   background: #bebebe;
   margin-top: 10px;
   margin: auto;
+`;
+export const ItemWrapper = styled.div`
+  display: block;
+  margin-right: 40px;
+
+  &:hover ${Item} {
+    color: #169ef9;
+  }
+
+  &:hover ${Circle} {
+    background-color: #169ef9;
+  }
 `;
