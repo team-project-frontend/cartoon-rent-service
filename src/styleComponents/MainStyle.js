@@ -1,5 +1,86 @@
 import styled from "styled-components";
+import sticker_1 from "../assets/images/sticker_1.png";
+import sticker_3 from "../assets/images/sticker_3.png";
+import sticker_4 from "../assets/images/sticker_4.png";
+import sticker_5 from "../assets/images/sticker_5.png";
+import tape45 from "../assets/images/tape_45.png";
+import tapeBottom45 from "../assets/images/tape_bottom_45.png";
+import searchButton from "../assets/images/search.png";
+import next from "../assets/images/next.png";
+import nextActive from "../assets/images/next_active.png";
 
+export const BannerContainer = styled.div`
+  overflow: hidden;
+  font-family: "Cafe24Ssurround";
+  width: 100%;
+  height: 500px;
+  position: relative;
+  background: #fff;
+  text-align: center;
+  border-radius: 0px 0px 150px 0px;
+  & h1 {
+    font-size: 36px;
+  }
+  & h3.sub {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  & .slideCon {
+    height: 100%;
+    background: #fff3e8;
+    padding: 40px 0;
+  }
+  & .searchBar {
+    position: absolute;
+    bottom: 40px;
+    background: #ffe7a9;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 900px;
+    padding: 30px 170px;
+    border-radius: 20px 0;
+  }
+  & .searchCon {
+    display: flex;
+    width: 100%;
+    border-bottom: 3px solid #ff8f50;
+    justify-content: space-between;
+    align-items: center;
+  }
+  & .searchCon input {
+    border: none;
+    background: #ffe7a9;
+    padding: 20px;
+    font-size: 30px;
+    width: 100%;
+    outline: none;
+  }
+  & .searchCon button {
+    background: ${`url(${searchButton}) center no-repeat  !important`};
+    width: 40px;
+    height: 40px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    text-indent: -9999px;
+  }
+  & .category_btn {
+    background: #ffe7a9;
+    border: 2px solid #ff8f50;
+    border-radius: 15px;
+    padding: 9px 17px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ff8f50;
+  }
+
+  & .categoryCon {
+    display: flex;
+    padding-top: 20px;
+    gap: 20px;
+  }
+`;
 // 메인컴포넌트 속에 컴포넌트 모아둘곳
 export const ReservationContainer = styled.div`
   max-width: 1440px;
@@ -8,51 +89,128 @@ export const ReservationContainer = styled.div`
   padding: 50px 20px;
   & .box {
     position: relative;
+    width: 25%;
   }
-  & .box::before {
-    content: "";
-    background: ${(props) => `url(${props.props}) center no-repeat`};
-    width: 81px;
-    height: 24px;
-    display: inline-block;
+  & .dim {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #ddd;
+  }
+  &
+    .slideClass
+    .carousel-root
+    .carousel.carousel-slider
+    .control-arrow.control-prev {
+    background: ${`url(${next}) center no-repeat #fff !important`};
+    opacity: 1 !important;
+    transform: rotate(-180deg);
+  }
+  & .slideClass .carousel-root .carousel.carousel-slider .control-arrow {
+    background: ${`url(${next}) center no-repeat #fff !important`};
+    opacity: 1 !important;
+  }
+  & .slideClass .carousel-root .carousel.carousel-slider .control-arrow:hover {
+    background: ${`url(${nextActive}) center no-repeat #fff !important`};
+    opacity: 1 !important;
+    color: none !important;
+  }
+  .carousel .control-arrow:before,
+  .carousel.carousel-slider .control-arrow:before {
+    display: none !important;
+  }
+  & .box:nth-child(1) .imgBox,
+  .box:nth-child(3) .imgBox {
+    width: 100%;
+    height: 100%;
     position: absolute;
     z-index: 2;
-    transform: rotate(-45deg);
-    left: -12px;
-    top: 12px;
+    background: ${`url(${tape45}) center no-repeat`};
+    background-size: 35% auto;
+    top: 0;
+    padding: 10%;
+    background-position: 0% -2px;
   }
-  & .box > img {
+  & .box:nth-child(3) .imgBox2 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    background: ${`url(${tapeBottom45}) center no-repeat`};
+    background-size: 35% auto;
+    top: 0;
+    padding: 10%;
+    background-position: 100% 100%;
+  }
+  & .box:nth-child(2) .imgBox {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    background: url(/cartoon-rent-service/src/assets/images/tape.png) center
+      no-repeat;
+    background-size: 35% auto;
+    top: 0;
+    padding: 10%;
+    background-position: 42% 10%;
+  }
+  & .box:nth-child(4) .imgBox {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    background: url(/cartoon-rent-service/src/assets/images/tape.png) center
+      no-repeat;
+    background-size: 35% auto;
+    top: 0;
+    padding: 20px;
+    background-position: 50% 10%;
+  }
+
+  & .box:nth-child(1) div img {
     padding: 20px;
     position: relative;
     transform: rotate(4.03deg);
   }
-  /* 테이프 기울기 */
-  & .box:nth-child(1):before {
+  & .box:nth-child(1)::after {
     content: "";
-    transform: rotate(-45deg);
-    left: -12px;
-    top: 12px;
+    display: block;
+    height: 100px;
+    background: ${`url(${sticker_1}) center no-repeat`};
+    background-size: 25% auto;
+    margin-top: 30px;
+  }
+  & .box:nth-child(2)::before {
+    content: "";
+    display: block;
+    height: 100px;
+    background: ${`url(${sticker_5}) center no-repeat`};
+    background-size: 20% auto;
+  }
+  & .box:nth-child(3)::after {
+    content: "";
+    display: block;
+    height: 100px;
+    background: ${`url(${sticker_4}) center no-repeat`};
+    background-size: 70% auto;
+    margin-top: 30px;
+  }
+  & .box:nth-child(4)::before {
+    content: "";
+    display: block;
+    height: 100px;
+    background: ${`url(${sticker_3}) center no-repeat`};
+    background-size: 25% auto;
   }
 
-  & .box:nth-child(2):before {
+  & .box:nth-child(2) div:before {
     content: "";
     transform: rotate(0deg);
     left: 70px;
     top: 10px;
   }
-  & .box:nth-child(3)::after {
-    content: "";
-    background: ${(props) => `url(${props.props}) center no-repeat`};
-    width: 81px;
-    height: 24px;
-    display: inline-block;
-    position: absolute;
-    z-index: 2;
-    transform: rotate(-45deg);
-    right: -12px;
-    bottom: 50px;
-  }
-  & .box:nth-child(4):before {
+
+  & .box:nth-child(4) div:before {
     content: "";
     transform: rotate(0deg);
     left: 80px;
@@ -103,7 +261,7 @@ export const FavoriteWrapper = styled.div`
 `;
 
 export const FavoriteTopArea = styled.div`
-  background-color: #169EF9;
+  background-color: #169ef9;
   width: 100%;
   height: 466px;
   border-radius: 150px 0px;
@@ -159,7 +317,7 @@ export const FavoriteContentSideButtonList = styled.div`
 `;
 
 export const FavoriteBottomArea = styled.div`
-  background-color: #F2F9FF;
+  background-color: #f2f9ff;
   height: 798px;
 `;
 
@@ -172,13 +330,13 @@ export const FavoriteBottomContent = styled.div`
   & > h1 {
     font-size: 40px;
     font-weight: 700;
-    font-style: normal
+    font-style: normal;
   }
   & > h1 > select {
-    color: #169EF9;
+    color: #169ef9;
     border: none;
     outline: 0;
-    background-color: #F2F9FF;
+    background-color: #f2f9ff;
     font-size: 40px;
     font-weight: 700;
     text-align: right;
@@ -192,7 +350,7 @@ export const FavoriteBottomKeywordArea = styled.div`
   justify-content: center;
   align-items: center;
   & > button {
-    border: 2px solid #169EF9;
+    border: 2px solid #169ef9;
     border-radius: 15px;
     width: 213px;
     height: 46px;

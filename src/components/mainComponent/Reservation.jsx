@@ -6,6 +6,7 @@ import ponyo from "../../assets/images/ponyo.png";
 import tape from "../../assets/images/tape.png";
 import heartFill from "../../assets/images/heart.png";
 import heartNo_fill from "../../assets/images/heart_no_fill.png";
+import bg from "../../assets/images/bg.png";
 
 const Reservation = () => {
   //api 통신으로 꼽을 배열
@@ -99,12 +100,7 @@ const Reservation = () => {
 
   return (
     <>
-      <ReservationContainer
-        props={tape}
-        style={{
-          height: "740px",
-        }}
-      >
+      <ReservationContainer props={tape}>
         <h1 className="sectionTitle" style={{ padding: "0 60px" }}>
           내 예약 현황
         </h1>
@@ -124,10 +120,10 @@ const Reservation = () => {
             <option value="2">최근어쩌고</option>
           </select>
         </div>
-        <div>
+        <div className="slideClass">
           <Carousel
             autoPlay={false}
-            infiniteLoop={true}
+            // infiniteLoop={true}
             showThumbs={false}
             emulateTouch={true}
             swipeable={true}
@@ -144,6 +140,7 @@ const Reservation = () => {
                     display: "flex",
                     justifyContent: "space-between",
                     padding: "20px 60px",
+                    gap: "50px",
                   }}
                 >
                   {a.data.map((c) => {
@@ -152,14 +149,34 @@ const Reservation = () => {
                         key={c.imgid}
                         className="box"
                         style={{
-                          border: "1px solid",
+                          background: "#fff",
                         }}
                       >
-                        <img
-                          src={c.imgUrl}
-                          alt="이미지"
-                          style={{ padding: "20px" }}
-                        />
+                        <div style={{ position: "relative" }}>
+                          <div className="imgBox"></div>
+                          <div className="dim"></div>
+                          <div>
+                            <img
+                              src={c.imgUrl}
+                              alt="이미지"
+                              style={{ padding: "15%" }}
+                            />
+                          </div>
+                          {c.status === "연체중" ? (
+                            <img
+                              src={bg}
+                              alt="패널티 이미지"
+                              style={{
+                                padding: "15%",
+                                position: "absolute",
+                                top: "0",
+                                left: "0",
+                                height: "100%",
+                              }}
+                            />
+                          ) : null}
+                          <div className="imgBox2"></div>
+                        </div>
                         <p
                           style={{
                             fontWeight: "700",
@@ -177,6 +194,7 @@ const Reservation = () => {
                           style={{
                             cursor: "pointer",
                             display: "inline-block",
+                            marginTop: "5px",
                           }}
                         >
                           <span>
@@ -188,7 +206,28 @@ const Reservation = () => {
                               }}
                             />
                           </span>
-                          <span> {c.title}</span>
+                          <span
+                            style={{
+                              fontSize: "18px",
+                            }}
+                          >
+                            {c.title}
+                          </span>
+                        </p>
+                        <p
+                          style={{
+                            marginTop: "15px",
+                            fontSize: "18px",
+                            color: "#FF8F50",
+                          }}
+                        >
+                          <span
+                            style={{
+                              letterSpacing: "-1px",
+                            }}
+                          >
+                            잔여 시간 03 : 08: 36
+                          </span>
                         </p>
                       </div>
                     );

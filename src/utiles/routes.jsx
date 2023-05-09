@@ -10,7 +10,6 @@ const Test = loadable(() => import("../pages/Test"), {
 const routes = [
   { id: 0, path: "/", title: "MainPage", item: <Main /> },
   { id: 1, path: "/test", title: "MainPage", item: <Test /> },
-
 ];
 
 export default routes;
