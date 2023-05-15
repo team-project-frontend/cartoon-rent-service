@@ -16,10 +16,6 @@ const FIndPassword = loadable(() => import("../pages/FindPassword"), {
 const routes = [
   { id: 0, path: "/", title: "MainPage", item: <Main /> },
   { id: 1, path: "/test", title: "MainPage", item: <Test /> },
-  { id: 2, path: "/findID", title: "FindID", item: <FIndID /> },
-  { id: 3, path: "/findPassword", title: "FindPassword", item: <FIndPassword /> },
-
-
 ];
 
 export default routes;
