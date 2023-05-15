@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import webtoon from "../../assets/images/webtoonImg.png";
 export const CardWrapper = styled.div`
-  width: 300px;
+  width: 350px;
   height: 465px;
   border: 3px solid #ff8f50;
+  border-radius: 15px;
   background: #ffffff;
   position: relative;
 `;
@@ -25,7 +26,7 @@ export const Image = styled.div`
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 120%;
+  width: 110%;
   height: 217px;
   // object-fit: cover;
   // overflow: hidden;
