@@ -37,10 +37,10 @@ export const ItemWrapper = styled.div`
   margin-right: 40px;
 
   &:hover ${Item} {
-    color: #169ef9;
+    color: #ff8f50;
   }
 
   &:hover ${Circle} {
-    background-color: #169ef9;
+    background-color: #ff8f50;
   }
 `;
