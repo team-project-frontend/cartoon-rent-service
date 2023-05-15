@@ -1,5 +1,5 @@
 import React from "react";
-import { ReservationContainer } from "../../../styleComponents/MainStyle";
+import { LayoutContainer } from "../../../styleComponents/shareTaste/Layout"
 import Navigation from "./Nav"
 import CardList from "./CardList";
 import {Title, SubTitle,Text} from "../../../styleComponents/shareTaste/Typography"
@@ -9,7 +9,7 @@ const ShareTaste = () => {
 //   };
   return (
     <>
-      <ReservationContainer>
+      <LayoutContainer>
         <h1 className="sectionTitle">취향 공유하기</h1>
         <div className="navigation">
           <p className="subTitle">
@@ -22,7 +22,7 @@ const ShareTaste = () => {
         <div className="slide">
     <CardList/>
         </div>
-      </ReservationContainer>
+      </LayoutContainer>
      
     </>
   );

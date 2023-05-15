@@ -1,9 +1,10 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Reservation from "../components/mainComponent/Reservation";
-import ShareTaste from "../components/mainComponent/shareTaste/ShareTaste";
-import FavoriteContent from "../components/mainComponent/favorite/FavoriteContent";
+import ShareTaste from '../components/mainComponent/shareTaste/ShareTaste';
+import Favorite from '../components/mainComponent/myFavoriteComics/Favorite';
 import FavoriteContents from "../components/mainComponent/favorite/FavoriteContents";
+import FavoriteContent from "../components/mainComponent/favorite/FavoriteContent";
 const Main = () => {
   return (
     <>
@@ -32,7 +33,13 @@ const Main = () => {
           </Route>
         </Routes>
 
-        <ShareTaste />
+
+
+
+        <ShareTaste/>
+        <Favorite/>
+
+    
       </div>
     </>
   );
