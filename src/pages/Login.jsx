@@ -20,7 +20,7 @@ const Login = () => {
   });
   const [cookie, setCookie] = useCookies(["name"]);
   const navigate = useNavigate();
-  const isJoin = () => navigate("/join");
+  const isSignUp = () => navigate("/signup");
   const expirationDate = new Date();
   expirationDate.setMinutes(expirationDate.getMinutes() + 1);
 
@@ -31,7 +31,7 @@ const Login = () => {
           console.log(res, "res");
           console.log(res.access_token, "카카오 엑세스 토큰");
           console.log(res.refresh_token, "카카오 리프레쉬 토큰");
-        
+
           loginState((state) => ({
             ...state,
             isLogin: true,
@@ -82,7 +82,7 @@ const Login = () => {
 
       <button onClick={isLogin}>로그인</button>
       <button onClick={handleKakaoLogin}>카카오 간편로그인</button>
-      <p style={{ fontSize: "10px", cursor: "pointer" }} onClick={isJoin}>
+      <p style={{ fontSize: "10px", cursor: "pointer" }} onClick={isSignUp}>
         가입 페이지
       </p>
     </>
