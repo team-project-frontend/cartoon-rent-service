@@ -12,7 +12,7 @@ import {
 } from "recoil";
 
 const FindID = () => {
-  const loginHandler = useSetRecoilState(userState); // 값만 변경 시키기
+  const findIDHandler = useSetRecoilState(userState); // 값만 변경 시키기
   const resetState = useResetRecoilState(userState); // 디폴트값으로 값 변경
   //아이디를 알려주기 위한 정보가 부족(핸드폰번호?라도 추가)
   const [value, changehandler] = useInput({
@@ -24,13 +24,14 @@ const FindID = () => {
   const navigate = useNavigate();
   const isFindPassword = () => navigate("/findPassword");
   const isFindID = async () => {
-    const res = await API.post("/auth/find_id",value);
+    const res = await API.post("https://test1-xtcj6il6hq-du.a.run.app/auth/find_id",value);
+    console.log('res.data',res.data)
     // try {
-    //   const emailTest = res.data.filter(
-    //     (current) => current.email === value.email
-    //   );
-    //   if (emailTest.length === 0) return error("아이디 틀려서 로그인못함");
-    //   loginHandler((state) => ({ ...state, isLogin: true, name: "ddd" }));
+    //   // const emailTest = res.data.filter(
+    //   //   (current) => current.email === value.email
+    //   // );
+    //   // if (emailTest.length === 0) return error("아이디 틀려서 로그인못함");
+    //   findIDHandler((state) => ({ ...state, isLogin: true, name: "ddd" }));
     //   //더비양식입니다
     // } catch (err) {
     //   console.log(err.response.data);
@@ -38,7 +39,7 @@ const FindID = () => {
     //   console.log(res.data);
     // }
   };
-console.log(value)
+// console.log(value)
   return (
     <>
       <div>아이디 찾기 페이지</div>
