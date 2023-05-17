@@ -23,38 +23,8 @@ function App() {
     if (window.Kakao) {
       window.Kakao.init("b49e4e1e3fb0885c87c93cdfa9f309c3");
       console.log(window.Kakao, "카카오 sdk 확인");
-      getKakaoToken();
     } else console.error("Kakao SDK가 로드되지 않았습니다.");
   }, []);
-
-  const getKakaoToken = () => {
-    console.log(
-      window.Kakao.Auth.login({
-        success: (res) => console.log("성공"),
-      }),
-      "dd"
-    );
-    window.Kakao.Auth.login({
-      success: (res) => console.log("성공"),
-    });
-    Kakao.Auth.login({
-      success: (res) => {
-        console.log(res, "res");
-        loginState((state) => ({
-          ...state,
-          isLogin: true,
-          access_token: res.access_token,
-        }));
-      },
-      fail: (error) => {
-        console.error(error, "에러");
-      },
-    });
-
-    // if (cookie.refresh_token) {
-
-    // }
-  };
 
   return (
     <>
