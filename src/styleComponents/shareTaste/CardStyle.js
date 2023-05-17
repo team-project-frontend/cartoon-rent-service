@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import webtoon from "../../assets/images/webtoonImg.png";
 export const CardWrapper = styled.div`
-  width: 270px;
+  width: 350px;
   height: 465px;
-  border: 2px solid #169ef9;
+  border: 3px solid #ff8f50;
+  border-radius: 15px;
   background: #ffffff;
   position: relative;
 `;
@@ -25,7 +26,7 @@ export const Image = styled.div`
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 130%;
+  width: 110%;
   height: 217px;
   // object-fit: cover;
   // overflow: hidden;
@@ -51,7 +52,7 @@ export const RankingText = styled.span`
   font-weight: 700;
   font-size: 96px;
   line-height: 113px;
-  color: #169ef9;
+  color: #ff8f50;
   transform: translateY(-50%);
   // margin-left: 10px;
   // font-style: normal;
@@ -62,16 +63,18 @@ export const RankingText = styled.span`
 `;
 
 export const LikeBtn = styled.button`
-  // width: 39px;
-  // height: 36px;
-  // background: #169ef9;
-  // border: 3px solid #169ef9;
-  // margin-top: 40px;
-  // margin-right: 20px;
+  // width: 100px;
+  // height: 100px;
+  // position: relative;
+  // transform: rotate(45deg);
+  // background-color: transparent;
+  // border: none;
+  // border-top: 3px solid #ff8f50;
+  // border-left: 3px solid #ff8f50;
   width: 39px;
   height: 36px;
-  background: #169ef9;
-  border: 3px solid #169ef9;
+  background: #ff8f50;
+  border: 3px solid #ff8f50;
   position: absolute;
   bottom: 15px;
   right: 10px;
@@ -119,7 +122,7 @@ export const Writter = styled.span`
   text-align: center;
   /* identical to box height */
 
-  color: #169ef9;
+  color: #ff8f50;
 `;
 export const Footer = styled.div`
   display: flex;

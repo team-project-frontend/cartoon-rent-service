@@ -2,6 +2,8 @@ import React from "react";
 import { ReservationContainer } from "../../../styleComponents/MainStyle";
 import Navigation from "./Nav"
 import {CardWrapper,Header,ContentInner,Image,RankingText,LikeBtn,LikeText,Content,Title,Writter,Footer,Reviewer,ReviewCount,Review, Inner} from "../../../styleComponents/shareTaste/CardStyle"; 
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+
 const Card = () => {
 //   const props = {
 //     paper,
@@ -15,7 +17,9 @@ const Card = () => {
         <RankingText>1</RankingText>
 
             <LikeBtn>
+{/* <FavoriteBorderIcon> */}
                 <LikeText>110</LikeText>
+                {/* </FavoriteBorderIcon> */}
             </LikeBtn>
        
         
