@@ -10,11 +10,19 @@ import { Toast } from "./utiles/toast";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import userState from "./store/userState";
 import { useCookies } from "react-cookie";
+import Header from "./layout/Header";
+import Nav from "./layout/Nav";
 function App() {
   const [cookie] = useCookies(["refresh_token"]);
   const globalValue = useRecoilValue(userState);
   const loginState = useSetRecoilState(userState); // 값만 변경 시키기
 
+  const [menuToggle, setMenuToggle] = useState(false);
+
+  const onClick = useCallback(() => {
+    setMenuToggle((state) => !state);
+    console.log(menuToggle);
+  }, [menuToggle]);
   useEffect(() => {
     console.log(globalValue, "globalValue");
   }, [globalValue]);
@@ -30,13 +38,21 @@ function App() {
     <>
       {!globalValue.isLogin ? (
         <>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/*" element={<Error />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/join" element={<Join />} />
-            <Route path="/signup" element={<SignUp />} />
-          </Routes>
+          {menuToggle ? (
+            <Nav onClick={onClick} />
+          ) : (
+            <>
+              <Header onClick={onClick} />
+              <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/*" element={<Error />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/join" element={<Join />} />
+                <Route path="/signup" element={<SignUp />} />
+              </Routes>
+            </>
+          )}
+
           <Toast />
         </>
       ) : (

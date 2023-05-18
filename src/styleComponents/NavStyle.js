@@ -4,7 +4,7 @@ export const NavContainer = styled.section`
   position: absolute;
   width: 100%;
   font-family: "Cafe24Ssurround";
-  background: #f2f9ff;
+  background: #8f6f61;
   height: calc(100vh);
 
   & .active {
@@ -12,14 +12,15 @@ export const NavContainer = styled.section`
   }
   & > .headerArea {
     display: flex;
+    padding: 10px 20px;
     height: 80px;
-    background: #cde3f1;
-    padding: 0px 10px;
+    background: #fff5eb;
+    align-items: center;
     justify-content: space-between;
   }
   & > .headerArea > .buttonArea {
     display: flex;
-    padding: 19.5px 0;
+    align-items: center;
     gap: 10px;
   }
   & > .headerArea > .buttonArea > .buttonItem {
@@ -35,31 +36,33 @@ export const NavContainer = styled.section`
   }
   & > .headerArea > .buttonArea > .buttonItem.loginButton > a {
     color: #fff;
-    border: 2px solid #169ef9;
-    background: #169ef9;
+    border: 2px solid #ff8f50;
+    background: #ff8f50;
   }
   & > .headerArea > .buttonArea > .buttonItem.joinButton > a {
-    color: #169ef9;
-    border: 2px solid #169ef9;
-    background: #cde3f1;
+    color: #ff8f50;
+    border: 2px solid #ff8f50;
+    background: #fff5eb;
   }
 
   & > .headerArea > .loginStatus {
     display: flex;
-    padding: 15px 0;
+
     width: 100%;
-    padding-right: 25px;
+
+    gap: 10px;
+    align-items: center;
   }
   & > .headerArea > .loginStatus > .profileArea {
-    border: 3px solid #169ef9;
+    border: 3px solid #ff8f50;
     height: 50px;
-    border-radius: 40px;
-    width: 100%;
+
     background: #fff;
     display: flex;
     align-items: center;
-    padding: 0 3px;
+    padding: 0 15px;
     gap: 10px;
+    border-radius: 40px;
   }
 
   & > .headerArea > .loginStatus > .profileArea > .profile {
@@ -73,7 +76,7 @@ export const NavContainer = styled.section`
   & > .headerArea > .loginStatus > .profileArea > .nickname {
     font-weight: 700;
     font-size: 18px;
-    color: #169ef9;
+    color: #ff8f50;
     flex-grow: 1;
     width: 50%;
   }
@@ -89,9 +92,9 @@ export const NavContainer = styled.section`
   }
   & > .headerArea > .activeArea {
     padding: 17px 0;
+    display: flex;
   }
   & > .headerArea > .activeArea > div {
-    border: 3px solid #169ef9;
     width: 46px;
     height: 46px;
     border-radius: 50px;
@@ -101,6 +104,62 @@ export const NavContainer = styled.section`
     justify-content: center;
     align-items: center;
     cursor: pointer;
+  }
+
+  & > .headerArea > .activeArea > .logoutButton {
+    width: 120px;
+    height: 50px;
+    background: ${(props) =>
+      `url(${props.props.logout}) center no-repeat #fff`};
+    padding: 17px 10px;
+    background-position: calc(100% - 10px);
+    border-radius: 40px;
+    color: #8f6f61;
+    margin-right: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .left-visivile {
+    animation-name: left-visivile;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+  .left-hidden {
+    animation-name: left-hidden;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes left-hidden {
+    from {
+      padding: 17px 10px;
+      background-position: calc(100% - 10px);
+      width: 120px;
+      margin-right: 10px;
+    }
+    to {
+      padding: 17px 0px;
+      background-position: 130%;
+      width: 0;
+      color: #fff;
+      background: #fff;
+      margin-right: 0px;
+    }
+  }
+
+  @keyframes left-visivile {
+    from {
+      padding: 17px 0px;
+      background-position: 130%;
+      width: 0;
+      margin-right: 0px;
+    }
+    to {
+      padding: 17px 10px;
+      background-position: calc(100% - 10px);
+      width: 120px;
+      margin-right: 10px;
+    }
   }
   /* 네브바 헤더 끝 */
 
@@ -121,17 +180,18 @@ export const NavContainer = styled.section`
   }
   /* 유저상태영역 */
   & > .wrap > .flexArea > .statusArea {
-    border: 2px solid #169ef9;
+    /* border: 2px solid #ff8f50; */
     border-radius: 15px;
     padding: 40px 45px;
     height: 130px;
     transition: 0.2s all ease-in;
+    background: #755b52;
   }
   & > .wrap > .flexArea > .statusArea > p {
     font-family: Cafe24Ssurround;
     font-size: 16px;
     font-weight: 700;
-    color: #169ef9;
+    color: #ff8f50;
     text-align: center;
     line-height: 21px;
   }
@@ -161,14 +221,14 @@ export const NavContainer = styled.section`
   & > .wrap > .flexArea > .buttonArea > .btnStyle:nth-child(1),
   & > .wrap > .flexArea > .buttonArea > .btnStyle:nth-child(2) {
     width: calc(50% - 10px);
-    background: #169ef9;
-    border: 1px solid #169ef9;
+    background: #755b52;
+    border: 1px solid #755b52;
     border-radius: 15px;
   }
   & > .wrap > .flexArea > .buttonArea > .btnStyle:last-child {
     width: 100%;
-    background: #169ef9;
-    border: 1px solid #169ef9;
+    background: #755b52;
+    border: 1px solid #755b52;
     border-radius: 15px;
     margin-top: 20px;
   }
@@ -177,7 +237,7 @@ export const NavContainer = styled.section`
     margin-top: 20px;
   }
   & > .wrap > .dropDownArea > .dropDownItem {
-    background: #c6e8ff;
+    background: #755b52;
     border-radius: 15px;
     overflow: hidden;
     height: 60px;
@@ -188,7 +248,7 @@ export const NavContainer = styled.section`
     font-weight: 700;
     font-size: 29px;
     line-height: 34px;
-    color: #169ef9;
+    color: #ffffff;
     position: relative;
     height: 60px;
     cursor: pointer;
@@ -211,7 +271,7 @@ export const NavContainer = styled.section`
   }
   & > .wrap > .dropDownArea > .dropDownItem ul {
     padding: 44px 30px;
-    border-top: 1px solid;
+    border-top: 1px solid #fff;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -223,6 +283,6 @@ export const NavContainer = styled.section`
     font-weight: 400;
     font-size: 18px;
     line-height: 25px;
-    color: #169ef9;
+    color: #fff;
   }
 `;

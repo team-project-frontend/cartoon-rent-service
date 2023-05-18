@@ -187,7 +187,21 @@ a {
 .pc-logo {
   background: url(./assets/images/logo.png) center no-repeat;
   text-indent: -9999px;
-  width: 80px;
+  width: 95px;
+  height: 60px;
+  background-size: 100%;
+}
+
+.checkinput:checked {
+  background-color: #fff;
+}
+
+.checkinput:checked::after {
+  content: "\2713";
+  color: #ff8f50;
+  font-size: 16px;
+  position: absolute;
+  left: 4px;
 }
 
 .flex {

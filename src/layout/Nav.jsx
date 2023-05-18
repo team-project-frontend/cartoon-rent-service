@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import userState from "../store/userState";
 import { Link } from "react-router-dom";
 import { Media768 } from "../utiles/media";
@@ -11,17 +11,38 @@ import btnIcon from "../assets/images/btn.png";
 import icon_1 from "../assets/images/nav_icon-01.svg";
 import icon_2 from "../assets/images/nav_icon-02.svg";
 import icon_3 from "../assets/images/nav_icon-03.svg";
+import logout from "../assets/images/logout.png";
 
 const Nav = ({ onClick }) => {
   const globalValue = useRecoilValue(userState); //리코일 전역변수 로그인 여부 조회용도
+  const logOutState = useSetRecoilState(userState);
+
   const [activeButton, setActiveButton] = useState(null); //nav버튼 토글 (수정필요)
+
+  const logoutHandle = () => {
+    if (window.Kakao) {
+      window.Kakao.Auth.logout(() => {
+        console.log("로그아웃");
+        logOutState((state) => ({
+          ...state,
+          isLogin: false,
+          name: "",
+          access_token: "",
+        }));
+        // removeCookie("refresh_token");
+      });
+    }
+  };
+
   const propsState = {
     profileImg,
     penaltyImg,
     btnIcon,
+    logout,
   };
   const onclick = () => alert("준비중입니다");
   const bubbling = (e) => e.stopPropagation();
+
   const onClickDrop = (e) => {
     const { classList } = e.currentTarget;
     if (activeButton) activeButton.classList.remove("active");
@@ -30,52 +51,81 @@ const Nav = ({ onClick }) => {
       setActiveButton(e.currentTarget);
     } else setActiveButton(null);
   };
+  console.log(globalValue.isLogin, "dddd");
   return (
     <>
       <NavContainer props={propsState} className="fade-in">
         <div className="headerArea">
           {!globalValue.isLogin ? (
             <div className="buttonArea">
+              <p className="pc-logo">로고</p>
               <div className="buttonItem loginButton">
                 <Link to="/login">로그인</Link>
               </div>
               <div className="buttonItem joinButton">
-                <Link to="/join">회원가입</Link>
+                <Link to="/signup">회원가입</Link>
               </div>
             </div>
           ) : (
             <>
-              {!Media768() && <p className="pc-logo">로고</p>}
               <div className="loginStatus">
-                <div className="profileArea">
+                {!Media768() && <p className="pc-logo">로고</p>}
+                <div
+                  className="profileArea"
+                  style={
+                    !Media768()
+                      ? { width: "calc(100% - 115px)" }
+                      : { width: "calc(100% - 10px)" }
+                  }
+                >
                   <span className="profile"></span>
                   <p className="nickname">
-                    오이짱아찌 <span style={{ color: "#C6E8FF" }}>님</span>
+                    오이짱아찌 <span style={{ color: "#755B52" }}>님</span>
                   </p>
-                  <p
-                    className="
-               ticket"
-                  >
-                    <b>
-                      보유한 이용권 <span style={{ color: "#169EF9" }}>3</span>
-                      장
-                    </b>
-                    <b>
-                      대여 중인 책 총{" "}
-                      <span style={{ color: "#169EF9" }}>3</span>권
-                    </b>
-                  </p>
+                  {Media768() ? (
+                    <p className="logoutButton" onClick={logoutHandle}>
+                      로그아웃2
+                    </p>
+                  ) : (
+                    <p
+                      className="
+           ticket"
+                    >
+                      <b>
+                        보유한 이용권{" "}
+                        <span style={{ color: "#ff8f50" }}>3</span>장
+                      </b>
+                      <b>
+                        대여 중인 책 총
+                        <span style={{ color: "#ff8f50" }}>3</span>권
+                      </b>
+                    </p>
+                  )}
                 </div>
               </div>
             </>
           )}
 
           <div className="activeArea">
+            {globalValue.isLogin ? (
+              <p
+                className={
+                  !Media768()
+                    ? "logoutButton left-visivile"
+                    : "logoutButton left-hidden"
+                }
+                onClick={logoutHandle}
+              >
+                로그아웃
+              </p>
+            ) : null}
+
             <div className="closeButton " onClick={onClick}>
               <img src={closeIcon} alt="닫기 버튼" />
             </div>
           </div>
         </div>
+
         <div className="wrap">
           <div className="flexArea">
             {!globalValue.isLogin ? (

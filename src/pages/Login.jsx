@@ -4,16 +4,17 @@ import API from "../utiles/api";
 import useInput from "../hooks/useInput";
 import { error } from "../utiles/toast";
 import userState from "../store/userState";
-
+import { Media768 } from "../utiles/media";
+import emailIcon from "../assets/images/email_icon.png";
+import passwordIcon from "../assets/images/password_icon.png";
 import {
   useSetRecoilState, // 렌더링 불필요시 : getter & setter 방식 오브젝트 프로퍼티 get , set 후 값만 수정 (인풋같은거 사용)
-  useResetRecoilState,
 } from "recoil";
-import axios from "axios";
+
 import { useCookies } from "react-cookie";
+import { LoginContainer } from "../styleComponents/loginStyle";
 const Login = () => {
   const loginState = useSetRecoilState(userState); // 값만 변경 시키기
-  const resetState = useResetRecoilState(userState); // 디폴트값으로 값 변경
   const [value, changehandler] = useInput({
     email: "",
     password: "",
@@ -62,29 +63,115 @@ const Login = () => {
     }
   };
 
+  const propsState = {
+    emailIcon,
+    passwordIcon,
+  };
+
   return (
     <>
-      <div>로그인 페이지</div>
-      <input
-        type="email"
-        onChange={(e) => {
-          changehandler(e, "email");
+      <div
+        style={{
+          width: "100%",
+          height: "calc(100vh - 80px)",
+          background: "#FFF5EB",
         }}
-      />
-      <br />
-      <input
-        type="password"
-        onChange={(e) => {
-          changehandler(e, "password");
-        }}
-      />
-      <br />
+      >
+        <div
+          style={
+            Media768()
+              ? {
+                  position: "relative",
+                  top: "50px",
+                  left: "50%",
+                  transform: "translate(-50%, 0px)",
+                }
+              : {
+                  position: "relative",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                }
+          }
+        >
+          <LoginContainer props={propsState}>
+            <div
+              style={
+                Media768()
+                  ? {
+                      padding: "50px 20px",
+                    }
+                  : { padding: "40px 50px" }
+              }
+            >
+              <h1>LOGIN</h1>
+              <div className="loginform">
+                <input
+                  type="email"
+                  className="emailValue"
+                  placeholder="아이디"
+                  onChange={(e) => {
+                    changehandler(e, "email");
+                  }}
+                />
+                <br />
+                <input
+                  style={{ margin: "10px 0 20px" }}
+                  placeholder="비밀번호"
+                  className="passwordValue"
+                  type="password"
+                  onChange={(e) => {
+                    changehandler(e, "password");
+                  }}
+                />
 
-      <button onClick={isLogin}>로그인</button>
-      <button onClick={handleKakaoLogin}>카카오 간편로그인</button>
-      <p style={{ fontSize: "10px", cursor: "pointer" }} onClick={isSignUp}>
-        가입 페이지
-      </p>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "5px",
+                    }}
+                  >
+                    <input
+                      type="checkbox"
+                      id="storage"
+                      className="checkinput"
+                    />
+                    <label htmlFor="storage" className="storage">
+                      로그인 정보 저장
+                    </label>
+                  </div>
+
+                  <span className="help">도움이 필요신가요?</span>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    gap: "10px",
+                    paddingTop: "60px",
+                  }}
+                >
+                  <button onClick={isSignUp} className="signupBtn">
+                    회원가입
+                  </button>
+                  <button onClick={isLogin} className="loginBtn">
+                    로그인
+                  </button>
+                </div>
+                {/* <button onClick={handleKakaoLogin}>카카오 간편로그인</button> */}
+              </div>
+            </div>
+          </LoginContainer>
+        </div>
+      </div>
     </>
   );
 };

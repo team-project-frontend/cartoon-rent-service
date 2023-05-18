@@ -1,25 +1,25 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.section`
-  background: #ffffff;
-  border-bottom: 1px solid;
+  background: #fff;
   width: 100%;
   font-family: "Cafe24Ssurround";
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 10px 20px;
   height: 80px;
   & > .logoArea {
-    width: 170px;
-    height: 80px;
+    width: 95px;
+    height: 60px;
     background: ${(props) => `url(${props.props}) center no-repeat`};
     text-align: center;
     line-height: 80px;
     font-size: 24px;
+    background-size: 100%;
   }
   & > .buttonArea {
     position: relative;
-    margin-right: 10px;
     width: 50px;
     height: 50px;
     cursor: pointer;
