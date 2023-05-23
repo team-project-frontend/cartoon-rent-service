@@ -15,9 +15,9 @@ import PersonIcon from '@mui/icons-material/Person';
 import CallIcon from '@mui/icons-material/Call';
 import { orange } from '@mui/material/colors';
 
-import {LayoutContainer,Box} from "../styleComponents/findInfo/Layout";
+import {LayoutContainer,Box,TitleInner} from "../styleComponents/findInfo/Layout";
 import {Title,InputLabel,BtnText} from "../styleComponents/findInfo/Typography";
-import {InputContainer,ButtonContainer} from "../styleComponents/findInfo/Contents";
+import {InputContainer,ButtonContainer,InputLabelInner} from "../styleComponents/findInfo/Contents";
 import {Input} from "../styleComponents/findInfo/Input";
 import {Button} from "../styleComponents/findInfo/Button";
 const FindInfo = () => {
@@ -54,11 +54,14 @@ const FindInfo = () => {
   return (
     <LayoutContainer>
         <Box>
-           
-      <Title>아이디 찾기 페이지</Title>
+         <TitleInner>  
+      <Title>로그인 정보 찾기</Title>
+      </TitleInner>
       <InputContainer>
+      <InputLabelInner>
       <PersonIcon sx={{ color: orange[600] }}/>
       <InputLabel>이름</InputLabel>
+      </InputLabelInner>
       <Input
         type="text"
         onChange={(e) => {
@@ -66,8 +69,10 @@ const FindInfo = () => {
         }}
       />
       <br />
+      <InputLabelInner>
       <CallIcon sx={{ color: orange[600] }}/>
       <InputLabel>전화번호</InputLabel>
+      </InputLabelInner>
       <Input
         type="text"
         onChange={(e) => {
@@ -77,9 +82,9 @@ const FindInfo = () => {
        <br />
    
 <ButtonContainer>
-<Button onClick={isFindPassword}><BtnText>비밀번호 찾기</BtnText></Button>
+<Button onClick={isFindPassword} bgColor="#FFFFFF" borderColor="#FF8F50" color="#FF8F50" ><BtnText>비밀번호 찾기</BtnText></Button>
 
-      <Button onClick={isFindID}><BtnText>아이디 찾기</BtnText></Button>
+      <Button onClick={isFindID} bgColor="#FF8F50" borderColor="#FF8F50"color="#FFFFFF" ><BtnText>아이디 찾기</BtnText></Button>
       
       </ButtonContainer>
       </InputContainer>

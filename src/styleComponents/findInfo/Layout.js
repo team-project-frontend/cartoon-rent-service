@@ -7,8 +7,14 @@ export const LayoutContainer = styled.div`
   align-items: center;
   height: 100vh;
   background-color: #fff5eb;
+  margin-bton
 `;
 
+export const TitleInner = styled.div`
+  justify-content: center;
+  align-items: center;
+  display: flex;
+`;
 export const Box = styled.div`
   width: 350px;
   height: 360px;
