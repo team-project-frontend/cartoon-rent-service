@@ -10,9 +10,16 @@ export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
+export const InputInner = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  width: 100%;
+`;
 export const InputLabelInner = styled.div`
-  margin-right: auto;
-  // margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.3rem;
 `;
 
 export const ButtonContainer = styled.div`

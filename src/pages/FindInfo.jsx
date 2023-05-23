@@ -17,7 +17,7 @@ import { orange } from '@mui/material/colors';
 
 import {LayoutContainer,Box,TitleInner} from "../styleComponents/findInfo/Layout";
 import {Title,InputLabel,BtnText} from "../styleComponents/findInfo/Typography";
-import {InputContainer,ButtonContainer,InputLabelInner} from "../styleComponents/findInfo/Contents";
+import {InputContainer,ButtonContainer,InputLabelInner,InputInner} from "../styleComponents/findInfo/Contents";
 import {Input} from "../styleComponents/findInfo/Input";
 import {Button} from "../styleComponents/findInfo/Button";
 const FindInfo = () => {
@@ -53,44 +53,43 @@ const FindInfo = () => {
 // console.log(value)
   return (
     <LayoutContainer>
-        <Box>
-         <TitleInner>  
-      <Title>로그인 정보 찾기</Title>
-      </TitleInner>
-      <InputContainer>
-      <InputLabelInner>
-      <PersonIcon sx={{ color: orange[600] }}/>
-      <InputLabel>이름</InputLabel>
-      </InputLabelInner>
-      <Input
-        type="text"
-        onChange={(e) => {
-          changehandler(e, "name");
-        }}
-      />
-      <br />
-      <InputLabelInner>
-      <CallIcon sx={{ color: orange[600] }}/>
-      <InputLabel>전화번호</InputLabel>
-      </InputLabelInner>
-      <Input
-        type="text"
-        onChange={(e) => {
-          changehandler(e, "phone");
-        }}
-      />
-       <br />
+            <Box>
+            <TitleInner>  
+                <Title>로그인 정보 찾기</Title>
+            </TitleInner>
+            <InputContainer>
+                <InputInner>
+                    <InputLabelInner>
+                        <PersonIcon sx={{ color: orange[600],marginRight:"0.2rem" }}/>
+                        <InputLabel>이름</InputLabel>
+                    </InputLabelInner>
+                    <Input type="text" onChange={(e) => {
+                        changehandler(e, "name");
+                        }}
+                    />
+                </InputInner>
+                <InputInner>
+                    <InputLabelInner>
+                        <CallIcon sx={{ color: orange[600],marginRight:"0.2rem" }}/>
+                        <InputLabel>전화번호</InputLabel>
+                    </InputLabelInner>
+                    <Input
+                        type="text"
+                        onChange={(e) => {
+                        changehandler(e, "phone");
+                        }}
+                    />
+                </InputInner>
    
-<ButtonContainer>
-<Button onClick={isFindPassword} bgColor="#FFFFFF" borderColor="#FF8F50" color="#FF8F50" ><BtnText>비밀번호 찾기</BtnText></Button>
+                <ButtonContainer>
+                    <Button onClick={isFindPassword} bgColor="#FFFFFF" borderColor="#FF8F50" color="#FF8F50" ><BtnText>비밀번호 찾기</BtnText></Button>
+                    <Button onClick={isFindID} bgColor="#FF8F50" borderColor="#FF8F50"color="#FFFFFF" ><BtnText>아이디 찾기</BtnText></Button>
+                
+                </ButtonContainer>
+            </InputContainer>
+        </Box>
 
-      <Button onClick={isFindID} bgColor="#FF8F50" borderColor="#FF8F50"color="#FFFFFF" ><BtnText>아이디 찾기</BtnText></Button>
-      
-      </ButtonContainer>
-      </InputContainer>
-     </Box>
-
-      </LayoutContainer>
+    </LayoutContainer>
   );
 };
 
