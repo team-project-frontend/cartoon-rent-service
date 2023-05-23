@@ -10,9 +10,17 @@ import {
   useSetRecoilState, // 렌더링 불필요시 : getter & setter 방식 오브젝트 프로퍼티 get , set 후 값만 수정 (인풋같은거 사용)
   useResetRecoilState,
 } from "recoil";
-import axios from 'axios';
+import axios from 'axios'
+import PersonIcon from '@mui/icons-material/Person';
+import CallIcon from '@mui/icons-material/Call';
+import { orange } from '@mui/material/colors';
 
-const FindID = () => {
+import {LayoutContainer,Box} from "../styleComponents/findInfo/Layout";
+import {Title,InputLabel,BtnText} from "../styleComponents/findInfo/Typography";
+import {InputContainer,ButtonContainer} from "../styleComponents/findInfo/Contents";
+import {Input} from "../styleComponents/findInfo/Input";
+import {Button} from "../styleComponents/findInfo/Button";
+const FindInfo = () => {
   const findIDHandler = useSetRecoilState(userState); // 값만 변경 시키기
   const resetState = useResetRecoilState(userState); // 디폴트값으로 값 변경
   //아이디를 알려주기 위한 정보가 부족(핸드폰번호?라도 추가)
@@ -44,18 +52,23 @@ const FindID = () => {
   };
 // console.log(value)
   return (
-    <>
-      <div>아이디 찾기 페이지</div>
-      <span>이름 : </span>
-      <input
+    <LayoutContainer>
+        <Box>
+           
+      <Title>아이디 찾기 페이지</Title>
+      <InputContainer>
+      <PersonIcon sx={{ color: orange[600] }}/>
+      <InputLabel>이름</InputLabel>
+      <Input
         type="text"
         onChange={(e) => {
           changehandler(e, "name");
         }}
       />
       <br />
-      <span>전화번호 : </span>
-      <input
+      <CallIcon sx={{ color: orange[600] }}/>
+      <InputLabel>전화번호</InputLabel>
+      <Input
         type="text"
         onChange={(e) => {
           changehandler(e, "phone");
@@ -63,13 +76,17 @@ const FindID = () => {
       />
        <br />
    
- <br />
-      <button onClick={isFindID}>아이디 찾기</button>
-      <p style={{ fontSize: "10px", cursor: "pointer" }} onClick={isFindPassword}>
-        비번 찾으러 가기
-      </p>
-    </>
+<ButtonContainer>
+<Button onClick={isFindPassword}><BtnText>비밀번호 찾기</BtnText></Button>
+
+      <Button onClick={isFindID}><BtnText>아이디 찾기</BtnText></Button>
+      
+      </ButtonContainer>
+      </InputContainer>
+     </Box>
+
+      </LayoutContainer>
   );
 };
 
-export default FindID;
+export default FindInfo;
