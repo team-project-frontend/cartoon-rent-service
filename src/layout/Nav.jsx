@@ -12,13 +12,14 @@ import icon_1 from "../assets/images/nav_icon-01.svg";
 import icon_2 from "../assets/images/nav_icon-02.svg";
 import icon_3 from "../assets/images/nav_icon-03.svg";
 import logout from "../assets/images/logout.png";
+import { useCookies } from "react-cookie";
 
 const Nav = ({ onClick }) => {
   const globalValue = useRecoilValue(userState); //리코일 전역변수 로그인 여부 조회용도
   const logOutState = useSetRecoilState(userState);
 
   const [activeButton, setActiveButton] = useState(null); //nav버튼 토글 (수정필요)
-
+  const [cookie, setCookie, removeCookie] = useCookies();
   const logoutHandle = () => {
     if (window.Kakao) {
       window.Kakao.Auth.logout(() => {
@@ -29,6 +30,7 @@ const Nav = ({ onClick }) => {
           name: "",
           access_token: "",
         }));
+        removeCookie("access_token");
         // removeCookie("refresh_token");
       });
     }

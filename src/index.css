@@ -203,7 +203,20 @@ a {
   position: absolute;
   left: 4px;
 }
-
+.loginform label.passwordlabel {
+  position: relative;
+}
+.loginform label.passwordlabel span {
+  top: -8px;
+  right: 12px;
+  content: "";
+  position: absolute;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: url(./assets/images/visible.png) center no-repeat;
+  cursor: pointer;
+}
 .flex {
   display: flex;
   flex-wrap: wrap;

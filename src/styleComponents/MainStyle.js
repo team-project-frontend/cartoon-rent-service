@@ -85,11 +85,11 @@ export const BannerContainer = styled.div`
 export const ReservationContainer = styled.div`
   max-width: 1440px;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: ${(props) => `${props.props() ? "10px" : "100px"}`};
   padding: 50px 20px;
   & .box {
     position: relative;
-    width: 25%;
+    width: ${(props) => `${props.props() ? "50%" : "25%"}`};
   }
   & .dim {
     width: 100%;
@@ -174,33 +174,62 @@ export const ReservationContainer = styled.div`
   }
   & .box:nth-child(1)::after {
     content: "";
-    display: block;
+    display: ${(props) => `${props.props() ? `none` : `block`}`};
     height: 100px;
     background: ${`url(${sticker_1}) center no-repeat`};
     background-size: 25% auto;
     margin-top: 30px;
   }
+  & .box:nth-child(1)::before {
+    content: "";
+    display: ${(props) => `${props.props() ? `block` : `none`}`};
+    height: 50px;
+    background: ${`url(${sticker_1}) center no-repeat`};
+    background-size: 20% auto;
+    background-position: 0;
+  }
   & .box:nth-child(2)::before {
     content: "";
     display: block;
-    height: 100px;
-    background: ${`url(${sticker_5}) center no-repeat`};
-    background-size: 20% auto;
+    height: ${(props) => `${props.props() ? `50px` : `100px`}`};
+
+    background: ${(props) =>
+      `${
+        props.props()
+          ? `url(${sticker_3}) center no-repeat`
+          : `url(${sticker_5}) center no-repeat`
+      }`};
+    background-position: ${(props) => `${props.props() ? `80%` : ``}`};
+    background-size: ${(props) => `${props.props() ? `15% auto` : `20% auto`}`};
   }
   & .box:nth-child(3)::after {
     content: "";
-    display: block;
+    display: ${(props) => `${props.props() ? `none` : `block`}`};
     height: 100px;
     background: ${`url(${sticker_4}) center no-repeat`};
     background-size: 70% auto;
     margin-top: 30px;
   }
+  & .box:nth-child(3)::before {
+    content: "";
+    display: ${(props) => `${props.props() ? `block` : `none`}`};
+    height: 50px;
+    margin-top: 30px;
+  }
   & .box:nth-child(4)::before {
     content: "";
     display: block;
-    height: 100px;
-    background: ${`url(${sticker_3}) center no-repeat`};
+    height: ${(props) => `${props.props() ? `50px` : `100px`}`};
+    background: ${(props) =>
+      `${
+        props.props()
+          ? `url(${sticker_4}) center no-repeat`
+          : `url(${sticker_3}) center no-repeat`
+      }`};
     background-size: 25% auto;
+    margin-top: 30px;
+    background-position: ${(props) => `${props.props() ? `40%` : ``}`};
+    background-size: ${(props) => `${props.props() ? `30%` : ``}`};
   }
 
   & .box:nth-child(2) div:before {
@@ -242,14 +271,24 @@ export const ReservationContainer = styled.div`
   }
 
   & .carousel-root .carousel.carousel-slider .control-arrow {
-    height: 60px;
-    width: 60px;
+    height: ${(props) => `${props.props() ? `40px` : ` 60px`}`};
+    width: ${(props) => `${props.props() ? `40px` : ` 60px`}`};
     border-radius: 50%;
     border: 1px solid#FF8F50;
     background: #fff !important;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    transition: none !important;
+  }
+  & .carousel-root .carousel.carousel-slider .control-arrow.control-prev {
+    top: ${(props) => `${props.props() ? `0` : ` 50%`}`};
+    left: ${(props) => `${props.props() ? `calc(50% - 15%)` : ` 0%`}`};
+  }
+  & .carousel-root .carousel.carousel-slider .control-arrow.control-next {
+    top: ${(props) => `${props.props() ? `0%` : ` 50%`}`}!important;
+    right: ${(props) => `${props.props() ? `calc(50% - 15%)` : ` 0%`}`};
+    transform: translateY(0);
   }
 `;
 

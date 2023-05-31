@@ -7,6 +7,7 @@ import tape from "../../assets/images/tape.png";
 import heartFill from "../../assets/images/heart.png";
 import heartNo_fill from "../../assets/images/heart_no_fill.png";
 import bg from "../../assets/images/bg.png";
+import { Media768 } from "../../utiles/media";
 
 const Reservation = () => {
   //api 통신으로 꼽을 배열
@@ -97,14 +98,29 @@ const Reservation = () => {
     },
     [slideIndex]
   );
+  const propsData = Media768();
 
   return (
     <>
-      <ReservationContainer props={tape}>
-        <h1 className="sectionTitle" style={{ padding: "0 60px" }}>
+      <ReservationContainer props={Media768}>
+        <h1
+          className="sectionTitle"
+          style={
+            Media768()
+              ? { padding: "0 60px", textAlign: "center" }
+              : { padding: "0 60px" }
+          }
+        >
           내 예약 현황
         </h1>
-        <div className="navigation" style={{ padding: "0 60px 50px 60px" }}>
+        <div
+          className="navigation"
+          style={
+            Media768()
+              ? { padding: "0 60px 50px 60px", justifyContent: "center" }
+              : { padding: "0 60px 50px 60px" }
+          }
+        >
           <p className="subTitle">
             <span
               style={{
@@ -115,15 +131,17 @@ const Reservation = () => {
               👀한 눈에 보기
             </span>
           </p>
-          <select>
-            <option value="1">전체보기</option>
-            <option value="2">최근어쩌고</option>
-          </select>
+          {!Media768() && (
+            <select>
+              <option value="1">전체보기</option>
+              <option value="2">최근어쩌고</option>
+            </select>
+          )}
         </div>
         <div className="slideClass">
           <Carousel
             autoPlay={false}
-            // infiniteLoop={true}
+            infiniteLoop={Media768 ? true : false}
             showThumbs={false}
             emulateTouch={true}
             swipeable={true}
@@ -136,12 +154,22 @@ const Reservation = () => {
                 <div
                   className="con"
                   key={a.id}
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    padding: "20px 60px",
-                    gap: "50px",
-                  }}
+                  style={
+                    Media768()
+                      ? {
+                          display: "flex",
+                          justifyContent: "space-between",
+                          flexWrap: "wrap",
+                          // padding: "20px 60px",
+                          // gap: "50px",
+                        }
+                      : {
+                          display: "flex",
+                          justifyContent: "space-between",
+                          padding: "20px 60px",
+                          gap: "50px",
+                        }
+                  }
                 >
                   {a.data.map((c) => {
                     return (

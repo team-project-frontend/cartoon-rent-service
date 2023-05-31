@@ -13,7 +13,7 @@ import { useCookies } from "react-cookie";
 import Header from "./layout/Header";
 import Nav from "./layout/Nav";
 function App() {
-  const [cookie] = useCookies(["refresh_token"]);
+  const [cookie] = useCookies();
   const globalValue = useRecoilValue(userState);
   const loginState = useSetRecoilState(userState); // 값만 변경 시키기
 
@@ -23,9 +23,19 @@ function App() {
     setMenuToggle((state) => !state);
     console.log(menuToggle);
   }, [menuToggle]);
+
   useEffect(() => {
     console.log(globalValue, "globalValue");
-  }, [globalValue]);
+
+    if (cookie.access_token !== undefined) {
+      loginState((state) => ({
+        ...state,
+        isLogin: true,
+        name: "",
+        access_token: "",
+      }));
+    }
+  }, []);
 
   useEffect(() => {
     if (window.Kakao) {

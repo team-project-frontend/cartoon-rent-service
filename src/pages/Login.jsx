@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../utiles/api";
 import useInput from "../hooks/useInput";
@@ -7,18 +7,21 @@ import userState from "../store/userState";
 import { Media768 } from "../utiles/media";
 import emailIcon from "../assets/images/email_icon.png";
 import passwordIcon from "../assets/images/password_icon.png";
+import visible from "../assets/images/visible.png";
 import {
   useSetRecoilState, // 렌더링 불필요시 : getter & setter 방식 오브젝트 프로퍼티 get , set 후 값만 수정 (인풋같은거 사용)
 } from "recoil";
 
 import { useCookies } from "react-cookie";
 import { LoginContainer } from "../styleComponents/loginStyle";
+
 const Login = () => {
   const loginState = useSetRecoilState(userState); // 값만 변경 시키기
   const [value, changehandler] = useInput({
     email: "",
     password: "",
   });
+  const [pwvisible, setPwvisible] = useState(false);
   const [cookie, setCookie] = useCookies(["name"]);
   const navigate = useNavigate();
   const isSignUp = () => navigate("/signup");
@@ -38,7 +41,7 @@ const Login = () => {
             isLogin: true,
             access_token: res.access_token,
           })); //전역변수에 엑세스 토큰 저장 로그인 상태 true 로 변경
-
+          setCookie("access_token", res.access_token);
           setCookie("refresh_token", res.refresh_token, {
             maxAge: res.refresh_token_expires_in,
           }); // 리프레쉬 쿠키 설정
@@ -115,15 +118,23 @@ const Login = () => {
                   }}
                 />
                 <br />
-                <input
-                  style={{ margin: "10px 0 20px" }}
-                  placeholder="비밀번호"
-                  className="passwordValue"
-                  type="password"
-                  onChange={(e) => {
-                    changehandler(e, "password");
-                  }}
-                />
+                <label className="passwordlabel" htmlFor="password">
+                  <input
+                    id="password"
+                    style={{ margin: "10px 0 20px" }}
+                    placeholder="비밀번호"
+                    className="passwordValue"
+                    type={pwvisible ? "text" : "password"}
+                    onChange={(e) => {
+                      changehandler(e, "password");
+                    }}
+                  />
+                  <span
+                    onClick={() => {
+                      setPwvisible(!pwvisible);
+                    }}
+                  ></span>
+                </label>
 
                 <div
                   style={{
@@ -162,7 +173,13 @@ const Login = () => {
                   <button onClick={isSignUp} className="signupBtn">
                     회원가입
                   </button>
-                  <button onClick={isLogin} className="loginBtn">
+                  <button
+                    onClick={
+                      // isLogin
+                      handleKakaoLogin
+                    }
+                    className="loginBtn"
+                  >
                     로그인
                   </button>
                 </div>

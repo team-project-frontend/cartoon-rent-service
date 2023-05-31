@@ -5,7 +5,7 @@ const userState = atom({
   default: {
     email: "",
     name: "",
-    isLogin: true,
+    isLogin: false,
     accssesToken: "",
   },
 });

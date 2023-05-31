@@ -19,7 +19,8 @@ export const LoginContainer = styled.div`
     padding: 50px;
     background: #fff;
   }
-  & .loginform > input {
+  & .loginform input.emailValue,
+  .loginform input.passwordValue {
     padding: 10px 60px;
     width: 100%;
     height: 50px;
@@ -29,12 +30,12 @@ export const LoginContainer = styled.div`
     border: 2px solid #fff5eb;
     font-size: 18px;
   }
-  & .loginform > input.emailValue {
+  & .loginform input.emailValue {
     background: ${(props) =>
       `url(${props.props.emailIcon}) center no-repeat #fff5eb`};
     background-position: 20px;
   }
-  & .loginform > input.passwordValue {
+  & .loginform input.passwordValue {
     background: ${(props) =>
       `url(${props.props.passwordIcon}) center no-repeat #fff5eb`};
     background-position: 20px;
