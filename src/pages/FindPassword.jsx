@@ -24,7 +24,10 @@ const FindPassword = () => {
   const navigate = useNavigate();
   const isFindID = () => navigate("/findID");
   const isFindPassword = async () => {
-    const res = await API.post("/auth/set_pw",value);
+    // const res = await API.post("https://test1-xtcj6il6hq-du.a.run.app/auth/set_pw",value);
+    const res1 = await axios.post("https://test1-xtcj6il6hq-du.a.run.app/auth/set_pw",value);
+
+    console.log('res1',res1.data);
     // try {
     //   const emailTest = res.data.filter(
     //     (current) => current.email === value.email
@@ -38,7 +41,7 @@ const FindPassword = () => {
     //   console.log(res.data);
     // }
   };
-console.log(value)
+// console.log(value)
   return (
     <>
       <div>비밀번호 재설정 페이지</div>

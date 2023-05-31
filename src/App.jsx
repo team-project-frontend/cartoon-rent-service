@@ -6,6 +6,7 @@ import Error from "./components/Error";
 import Login from "./pages/Login";
 import Join from "./pages/Join";
 import SignUp from "./pages/SignUp";
+import FindInfo from "./pages/FindInfo";
 import { Toast } from "./utiles/toast";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import userState from "./store/userState";
@@ -62,7 +63,14 @@ function App() {
               </Routes>
             </>
           )}
-
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/*" element={<Error />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/join" element={<Join />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/findInfo" element={<FindInfo />} />
+          </Routes>
           <Toast />
         </>
       ) : (
