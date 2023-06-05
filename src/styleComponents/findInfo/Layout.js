@@ -5,7 +5,7 @@ export const LayoutContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
   background-color: #fff5eb;
   margin-bton
 `;
@@ -16,8 +16,8 @@ export const TitleInner = styled.div`
   display: flex;
 `;
 export const Box = styled.div`
-  width: 350px;
-  height: 360px;
+  width: 430px;
+  height: 420px;
   background-color: white;
   padding: 2.5rem;
 `;

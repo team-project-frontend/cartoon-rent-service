@@ -25,6 +25,7 @@ const Login = () => {
   const [cookie, setCookie] = useCookies(["name"]);
   const navigate = useNavigate();
   const isSignUp = () => navigate("/signup");
+  const isFindInfo = () => navigate("/findInfo");
   const expirationDate = new Date();
   expirationDate.setMinutes(expirationDate.getMinutes() + 1);
 
@@ -84,17 +85,17 @@ const Login = () => {
           style={
             Media768()
               ? {
-                  position: "relative",
-                  top: "50px",
-                  left: "50%",
-                  transform: "translate(-50%, 0px)",
-                }
+                position: "relative",
+                top: "50px",
+                left: "50%",
+                transform: "translate(-50%, 0px)",
+              }
               : {
-                  position: "relative",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                }
+                position: "relative",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+              }
           }
         >
           <LoginContainer props={propsState}>
@@ -102,8 +103,8 @@ const Login = () => {
               style={
                 Media768()
                   ? {
-                      padding: "50px 20px",
-                    }
+                    padding: "50px 20px",
+                  }
                   : { padding: "40px 50px" }
               }
             >
@@ -160,7 +161,7 @@ const Login = () => {
                     </label>
                   </div>
 
-                  <span className="help">도움이 필요신가요?</span>
+                  <span className="help" onClick={isFindInfo}>도움이 필요신가요?</span>
                 </div>
                 <div
                   style={{

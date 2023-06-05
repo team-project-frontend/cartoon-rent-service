@@ -6,8 +6,8 @@ export const Button = styled.button`
   border: 2px solid ${(props) => props.borderColor || "#ccc"};
   color: ${(props) => props.color || "#FFFFFF"};
   cursor: pointer;
-  width: 110px;
-  height: 35px;
+  width: 150px;
+  height: 40px;
   margin-right: 10px;
   margin-left: 10px;
   border-radius: 10px;

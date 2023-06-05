@@ -37,12 +37,21 @@ const handleNameChange = (e) => {
   const handlePhoneChange = (e) => {
     setPhone(e.target.value);
   };
-console.log(name,phone)
+// console.log(name,phone)
   const navigate = useNavigate();
-  const isFindPassword = () => {
-    navigate("/findPassword")};
-    const isFindId = () => {
-        navigate("/findId")};
+  const isFindPassword = () => {navigate("/findPassword")};
+    const isFindId = async () => {
+     try{
+      const res = await API.post("/auth/find_id",{
+        name,
+        phone
+      });
+      console.log('res.data',res.data);
+     }catch(err){
+      console.log('err',err);
+     }
+    }
+        // navigate("/findId")};
 //   const isFindID = async () => {
 //     const res = await API.post("https://test1-xtcj6il6hq-du.a.run.app/auth/find_id",value);
 //     console.log('rs.data',res.data)

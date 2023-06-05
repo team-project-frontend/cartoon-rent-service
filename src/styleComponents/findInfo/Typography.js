@@ -17,7 +17,7 @@ export const BtnText = styled.span`
   font-family: "Cafe24Ssurround";
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 18px;
   text-align: center;
 `;
