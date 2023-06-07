@@ -9,3 +9,8 @@ export const phoneState = atom({
   key: "phone",
   default: "",
 });
+
+export const isMatchState = atom({
+  key: "isMatch",
+  default: false,
+});

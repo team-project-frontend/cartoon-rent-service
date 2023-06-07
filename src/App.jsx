@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Join from "./pages/Join";
 import SignUp from "./pages/SignUp";
 import FindInfo from "./pages/FindInfo";
+import FindID from "./pages/FindID";
 import { Toast } from "./utiles/toast";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import userState from "./store/userState";
@@ -61,6 +62,8 @@ function App() {
                 <Route path="/join" element={<Join />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/findInfo" element={<FindInfo />} />
+                <Route path="/findInfo" element={<FindInfo />} />
+                <Route path="/findId" element={<FindID />} />
               </Routes>
             </>
           )}
@@ -71,6 +74,8 @@ function App() {
             <Route path="/join" element={<Join />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/findInfo" element={<FindInfo />} />
+            <Route path="/findInfo" element={<FindInfo />} />
+            <Route path="/findId" element={<FindID />} />
           </Routes>
           <Toast />
         </>

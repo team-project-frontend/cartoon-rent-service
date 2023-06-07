@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Counter from "./Counter";
 import API from "../utiles/api";
@@ -11,20 +11,22 @@ import {
   useResetRecoilState,
   useRecoilValue
 } from "recoil";
-import {nameState,phoneState} from "../store/findState";
+import { nameState, phoneState, isMatchState } from "../store/findState";
 
 import axios from 'axios';
 
 const FindID = () => {
-  const [name,setName] = useRecoilState(nameState); 
-  const[phone,setPhone] = useRecoilState(phoneState); 
+  const [name, setName] = useRecoilState(nameState);
+  const [phone, setPhone] = useRecoilState(phoneState);
+  const [isMatch, setIsMatch] = useRecoilState(isMatchState);
+
   const findIDHandler = useSetRecoilState(userState); // 값만 변경 시키기
   const resetState = useResetRecoilState(userState); // 디폴트값으로 값 변경
   //아이디를 알려주기 위한 정보가 부족(핸드폰번호?라도 추가)
   // const [value, changehandler] = useInput({
   //   name: "",
   //   phone:"",
-   
+
   // });
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -37,10 +39,10 @@ const FindID = () => {
   const navigate = useNavigate();
   const isFindPassword = () => navigate("/findPassword");
   const isFindID = async () => {
-    const res = await API.post("https://test1-xtcj6il6hq-du.a.run.app/auth/find_id",value);
-    console.log('res.data',res.data)
-    const res1 = await axios.post("https://test1-xtcj6il6hq-du.a.run.app/auth/find_id",value);
-    console.log('res1.data',res1.data)
+    const res = await API.post("https://test1-xtcj6il6hq-du.a.run.app/auth/find_id", value);
+    console.log('res.data', res.data)
+    const res1 = await axios.post("https://test1-xtcj6il6hq-du.a.run.app/auth/find_id", value);
+    console.log('res1.data', res1.data)
     // try {
     //   // const emailTest = res.data.filter(
     //   //   (current) => current.email === value.email
@@ -54,39 +56,42 @@ const FindID = () => {
     //   console.log(res.data);
     // }
   };
-  useEffect(() => {
-    API.post("https://test1-xtcj6il6hq-du.a.run.app/auth/find_id",{name,phone}).then((res) => {
-      console.log('res',res.data)
-    });
-  },[])
-// console.log('name',name)
+  // useEffect(() => {
+  //   API.post("https://test1-xtcj6il6hq-du.a.run.app/auth/find_id",{name,phone}).then((res) => {
+  //     console.log('res',res.data)
+  //   });
+  // },[])
+  console.log('isMatch', isMatch)
   return (
     <>
       <div>아이디 찾기 페이지</div>
-      <span>이름 : </span>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => {
-          changehandler(e, "name");
-        }}
-      />
-      <br />
-      <span>전화번호 : </span>
-      <input
-        type="text"
-        value={phone}
-        onChange={(e) => {
-          changehandler(e, "phone");
-        }}
-      />
-       <br />
-   
- <br />
-      <button onClick={isFindID}>아이디 찾기</button>
-      <p style={{ fontSize: "10px", cursor: "pointer" }} onClick={isFindPassword}>
-        비번 찾으러 가기
+      {!isMatch ? (<>
+        <span>이름 : </span>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => {
+            changehandler(e, "name");
+          }}
+        />
+        <br />
+        <span>전화번호 : </span>
+        <input
+          type="text"
+          value={phone}
+          onChange={(e) => {
+            changehandler(e, "phone");
+          }}
+        />
+        <br />
+
+        <br />
+        <button onClick={isFindID}>아이디 찾기</button>
+        <p style={{ fontSize: "10px", cursor: "pointer" }} onClick={isFindPassword}>
+          비번 찾으러 가기
       </p>
+      </>) : (<></>)}
+
     </>
   );
 };
