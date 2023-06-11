@@ -19,21 +19,23 @@ const Nav = ({ onClick }) => {
   const logOutState = useSetRecoilState(userState);
 
   const [activeButton, setActiveButton] = useState(null); //nav버튼 토글 (수정필요)
-  const [cookie, setCookie, removeCookie] = useCookies();
+  const [cookies, setCookie, removeCookie] = useCookies(["access_token"]);
+
   const logoutHandle = () => {
-    if (window.Kakao) {
-      window.Kakao.Auth.logout(() => {
-        console.log("로그아웃");
-        logOutState((state) => ({
-          ...state,
-          isLogin: false,
-          name: "",
-          access_token: "",
-        }));
-        removeCookie("access_token");
-        // removeCookie("refresh_token");
-      });
-    }
+    console.log(cookies.access_token);
+    // if (window.Kakao) {
+    //   window.Kakao.Auth.logout(() => {
+    //     console.log("로그아웃");
+    //     logOutState((state) => ({
+    //       ...state,
+    //       isLogin: false,
+    //       name: "",
+    //       access_token: "",
+    //     }));
+    //   });
+    // }
+    removeCookie("access_token");
+    removeCookie("refresh_token");
   };
 
   const propsState = {
@@ -53,10 +55,14 @@ const Nav = ({ onClick }) => {
       setActiveButton(e.currentTarget);
     } else setActiveButton(null);
   };
-  console.log(globalValue.isLogin, "dddd");
+
   return (
     <>
-      <NavContainer props={propsState} className="fade-in">
+      <NavContainer
+        props={propsState}
+        className="fade-in"
+        style={{ zIndex: 2 }}
+      >
         <div className="headerArea">
           {!globalValue.isLogin ? (
             <div className="buttonArea">
@@ -86,7 +92,7 @@ const Nav = ({ onClick }) => {
                   </p>
                   {Media768() ? (
                     <p className="logoutButton" onClick={logoutHandle}>
-                      로그아웃2
+                      로그아웃
                     </p>
                   ) : (
                     <p

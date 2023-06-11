@@ -55,9 +55,23 @@ const Login = () => {
     }
   };
   const isLogin = async () => {
-    const res = await API.get("/users");
+    const post = {
+      email: value.email,
+      password: value.password,
+    };
+
     try {
-      loginState((state) => ({ ...state, isLogin: true, name: "ddd" }));
+      const res = await API.post("/auth/login", post);
+      loginState((state) => ({
+        ...state,
+        isLogin: true,
+        access_token: res.data.accessToken,
+      }));
+      setCookie("access_token", res.data.data.accessToken);
+      setCookie("refresh_token", res.data.data.refreshToken, {
+        maxAge: res.refreshToken,
+      }); // 리프레쉬 쿠키 설정
+      console.log(res.data, "d");
       navigate("/");
     } catch (err) {
       console.log(err.response.data);
@@ -113,6 +127,7 @@ const Login = () => {
                   type="email"
                   className="emailValue"
                   placeholder="아이디"
+                  value={value.email}
                   onChange={(e) => {
                     changehandler(e, "email");
                   }}
@@ -123,6 +138,7 @@ const Login = () => {
                     id="password"
                     style={{ margin: "10px 0 20px" }}
                     placeholder="비밀번호"
+                    value={value.password}
                     className="passwordValue"
                     type={pwvisible ? "text" : "password"}
                     onChange={(e) => {
@@ -175,8 +191,8 @@ const Login = () => {
                   </button>
                   <button
                     onClick={
-                      // isLogin
-                      handleKakaoLogin
+                      isLogin
+                      // handleKakaoLogin
                     }
                     className="loginBtn"
                   >

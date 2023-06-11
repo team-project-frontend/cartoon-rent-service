@@ -249,7 +249,43 @@ a {
 .paperBg {
   background: url(./assets/images/paper.svg) center;
   height: 110px;
-  margin-bottom: 50px;
+}
+
+/* 취향 */
+
+.favoriteTitle {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 47px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.favoriteSubTitle {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  color: #dddddd;
+}
+
+/* import comedyImg from "../assets/images/comedyimg.png";
+import minteryImg from "../assets/images/minteryimg.png";
+import romanceImg from "../assets/images/romance_img.png";
+import actionImg from "../assets/images/action_img.png";
+import pantasyImg from "../assets/images/pantasy_img.png"; */
+.favoriteIconBox .icon1 {
+  background: url(./assets/images/pantasy_img.png) center no-repeat;
+}
+.favoriteIconBox .icon2 {
+  background: url(./assets/images/action_img.png) center no-repeat;
+}
+.favoriteIconBox .icon3 {
+  background: url(./assets/images/romance_img.png) center no-repeat;
+}
+.favoriteIconBox .icon4 {
+  background: url(./assets/images/minteryimg.png) center no-repeat;
+}
+.favoriteIconBox .icon5 {
+  background: url(./assets/images/comedyimg.png) center no-repeat;
 }
 
 @keyframes fade-in {

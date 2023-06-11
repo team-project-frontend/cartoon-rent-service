@@ -17,7 +17,9 @@ export const BannerContainer = styled.div`
   position: relative;
   background: #fff;
   text-align: center;
-  border-radius: 0px 0px 150px 0px;
+  /* border-radius: 0px 0px 150px 0px; */
+  border-radius: ${(props) =>
+    `${props.props() ? "10px" : "0px 0px 150px 0px;"}`};
   & h1 {
     font-size: 36px;
   }
@@ -38,8 +40,9 @@ export const BannerContainer = styled.div`
     transform: translateX(-50%);
     width: 100%;
     max-width: 900px;
-    padding: 30px 170px;
+    padding: 30px 20px;
     border-radius: 20px 0;
+    width: calc(100% - 40px);
   }
   & .searchCon {
     display: flex;
@@ -47,6 +50,8 @@ export const BannerContainer = styled.div`
     border-bottom: 3px solid #ff8f50;
     justify-content: space-between;
     align-items: center;
+    max-width: 560px;
+    margin: 0 auto;
   }
   & .searchCon input {
     border: none;
@@ -79,6 +84,8 @@ export const BannerContainer = styled.div`
     display: flex;
     padding-top: 20px;
     gap: 20px;
+    max-width: 560px;
+    margin: 0 auto;
   }
 `;
 // 메인컴포넌트 속에 컴포넌트 모아둘곳
